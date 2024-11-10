@@ -13,11 +13,12 @@ public class Servicios {
     private String nombre;
     @Column(name = "descripcion", columnDefinition = "VARCHAR(100)")
     private String descripcion;
-    @Column(name = "categoria", columnDefinition = "VARCHAR(20)")
+   //esta es la relacio con la tabla de categorias
     private String categoria;
+
     @Column(name = "status", columnDefinition = "BOOL DEFAULT TRUE")
     private boolean status;
-
+    
     //aqui poner la relaccioens si son nenesarias
 
     public Servicios() {
