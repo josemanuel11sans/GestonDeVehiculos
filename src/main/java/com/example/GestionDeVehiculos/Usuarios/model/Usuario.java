@@ -9,20 +9,27 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name="nombre", columnDefinition = "VARCHAR(50)")
     private String nombre;
+
     @Column(name="apellidos", columnDefinition = "VARCHAR(100)")
     private String apellidos;
+
     @Column(name="correoElectronico", columnDefinition = "VARCHAR(60)")
     private String correoElectronico;
+
     @Column(name="telefono", columnDefinition = "INTEGER(11)")
     private int telefono;
+
     //no usar n para contraseña
-    @Column(name="contrasena", columnDefinition = "VARCHAR(50)")
+    @Column(name="contrasena", columnDefinition = "VARCHAR(255)")
     private String contrasena;
-   //esat puede ser una tabla
-    @Column(name = "rol", columnDefinition = "INTERGER(2)")
+
+   //esta puede ser una tabla
+    @Column(name = "rol", columnDefinition = "INTEGER(2)")
     private int rol;
+
     //el estatus en automatico se guarda como TRUE al guardar
     @Column(name = "status", columnDefinition = "BOOL DEFAULT TRUE")
     private Boolean Status;

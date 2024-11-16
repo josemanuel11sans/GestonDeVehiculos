@@ -3,9 +3,7 @@ package com.example.GestionDeVehiculos.Vehiculos.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(
-        name = "vehiculos"
-)
+@Table(name = "vehiculos")
 public class Vehiculos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +12,7 @@ public class Vehiculos {
     private String modelo;
     @Column(name = "marca", columnDefinition = "VARCHAR(50)")
     private String marca;
-    @Column(name = "marca",columnDefinition = "VARCHAR(50)")
+    @Column(name = "color",columnDefinition = "VARCHAR(50)")
     private String color;
 
     //esta es la relacion con la tabla se servicio
