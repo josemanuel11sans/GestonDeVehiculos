@@ -18,8 +18,7 @@ public class CategoriaDeServicios {
     public CategoriaDeServicios() {
     }
     //cgenerar de nuevo cuando se ponga la relacion con otra tabla si es nesesario
-    public CategoriaDeServicios(Long id, String nombre, String descripcion, Boolean status) {
-        this.id = id;
+    public CategoriaDeServicios( String nombre, String descripcion, Boolean status) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.status = status;
@@ -56,4 +55,5 @@ public class CategoriaDeServicios {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
 }
