@@ -1,5 +1,6 @@
 package com.example.GestionDeVehiculos.Servicios.model;
 
+import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServicios;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,18 +14,24 @@ public class Servicios {
     private String nombre;
     @Column(name = "descripcion", columnDefinition = "VARCHAR(100)")
     private String descripcion;
-    @Column(name = "categoria", columnDefinition = "VARCHAR(20)")
-    private String categoria;
+   //esta es la relacio con la tabla de categorias
+    //private String categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private CategoriaDeServicios categoria;
+
     @Column(name = "status", columnDefinition = "BOOL DEFAULT TRUE")
     private boolean status;
-
+    
     //aqui poner la relaccioens si son nenesarias
 
     public Servicios() {
     }
 
     //NOTA: si se agrega una relacion se tiene que generar de nuevo este cosnstructor
-    public Servicios(Long id, String nombre, String descripcion, String categoria, boolean status) {
+
+    public Servicios(Long id, String nombre, String descripcion, CategoriaDeServicios categoria, boolean status) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -33,6 +40,7 @@ public class Servicios {
     }
 
     //getters y setters
+
     public Long getId() {
         return id;
     }
@@ -57,11 +65,11 @@ public class Servicios {
         this.descripcion = descripcion;
     }
 
-    public String getCategoria() {
+    public CategoriaDeServicios getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(CategoriaDeServicios categoria) {
         this.categoria = categoria;
     }
 
