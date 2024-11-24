@@ -1,8 +1,8 @@
 package com.example.GestionDeVehiculos.Vehiculos.model;
 
-
-import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
+import com.example.GestionDeVehiculos.Servicios.model.Servicios;
 import jakarta.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Vehiculo")
@@ -24,15 +24,15 @@ public class Vehiculo {
     @Column(name = "status", columnDefinition = "TINYINT", nullable = false)
     private boolean status;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "id_servicio", referencedColumnName = "id")
-    private Servicio servicio;
+    @ManyToMany
+    @JoinTable(
+            name = "vehiculo_servicio",
+            joinColumns = @JoinColumn(name = "vehiculo_id"),
+            inverseJoinColumns = @JoinColumn(name = "servicio_id")
+    )
+    private Set<Servicios> servicios;
 
-     */
-
-
-
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -65,21 +65,19 @@ public class Vehiculo {
         this.color = color;
     }
 
-    /* Logica lista para cuando se agregue servicios
-    public Servicio getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(Servicio servicio) {
-        this.servicio = servicio;
-    }
-     */
-
     public boolean isStatus() {
         return status;
     }
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Set<Servicios> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(Set<Servicios> servicios) {
+        this.servicios = servicios;
     }
 }
