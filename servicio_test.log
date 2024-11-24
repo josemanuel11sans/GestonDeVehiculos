@@ -382,3 +382,32 @@ org.hibernate.query.QueryTypeMismatchException: Specified result type [java.lang
 2024-11-23T19:51:39.360-06:00  WARN 10740 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2024-11-23T19:51:39.782-06:00  INFO 10740 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2024-11-23T19:51:39.788-06:00  INFO 10740 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 4.617 seconds (process running for 5.181)
+2024-11-23T21:44:22.127-06:00  INFO 2256 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Starting GestionDeVehiculosApplication using Java 22.0.1 with PID 2256 (C:\Users\Josem\Desktop\Repos\GestionDeVehiculos\target\classes started by Josem in C:\Users\Josem\Desktop\Repos\GestionDeVehiculos)
+2024-11-23T21:44:22.130-06:00  INFO 2256 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-23T21:44:22.838-06:00  INFO 2256 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-23T21:44:22.899-06:00  INFO 2256 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2024-11-23T21:44:23.340-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-23T21:44:23.354-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-23T21:44:23.354-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-23T21:44:23.401-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-23T21:44:23.402-06:00  INFO 2256 --- [GestionDeVehiculos] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1219 ms
+2024-11-23T21:44:23.538-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-23T21:44:23.608-06:00  INFO 2256 --- [GestionDeVehiculos] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-23T21:44:23.640-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-23T21:44:23.925-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-23T21:44:23.953-06:00  INFO 2256 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-23T21:44:24.355-06:00  INFO 2256 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@28fa541
+2024-11-23T21:44:24.356-06:00  INFO 2256 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-23T21:44:24.423-06:00  WARN 2256 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-23T21:44:24.424-06:00  WARN 2256 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-23T21:44:25.216-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-23T21:44:25.535-06:00  INFO 2256 --- [GestionDeVehiculos] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-23T21:44:25.866-06:00  WARN 2256 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-23T21:44:26.205-06:00  INFO 2256 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-23T21:44:26.211-06:00  INFO 2256 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 4.623 seconds (process running for 5.323)
+2024-11-23T21:44:30.025-06:00  INFO 2256 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-23T21:44:30.026-06:00  INFO 2256 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-23T21:44:30.028-06:00  INFO 2256 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-23T21:45:52.998-06:00  INFO 2256 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-23T21:45:53.118-06:00  INFO 2256 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-23T21:45:53.403-06:00  INFO 2256 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
