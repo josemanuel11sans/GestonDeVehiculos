@@ -22,12 +22,12 @@ import java.util.logging.Logger;
 @Transactional
 public class CategoriaDeServiciosService {
     //private final static Logger logger = LoggerFactory.getLogger(CategoriaDeServiciosService.class);
-    private final CategoriaDeServiciosRepository repository;
+        private final CategoriaDeServiciosRepository repository;
 
-    @Autowired
-    public CategoriaDeServiciosService(CategoriaDeServiciosRepository repository){
-        this.repository = repository;
-    }
+        @Autowired
+        public CategoriaDeServiciosService(CategoriaDeServiciosRepository repository){
+            this.repository = repository;
+        }
 
     ////////////////////////
     //CONSULTAR CATEGORIAS//
@@ -55,7 +55,7 @@ public class CategoriaDeServiciosService {
     public ResponseEntity<Object>  cambiarStatus(CategoriaDeServiciosDTO dto){
         Optional<CategoriaDeServicios> optional = repository.findById(dto.getId());
         if(!optional.isPresent()){
-            return new ResponseEntity<>(new Message( "No se encontro la categoria", TypesResponse.SUCCESS), HttpStatus.OK);
+            return new ResponseEntity<>(new Message( "No se encontro la categoria", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
         }
         CategoriaDeServicios categoriaDeServicios = optional.get();
         categoriaDeServicios.setStatus(!categoriaDeServicios.getStatus());
@@ -134,7 +134,7 @@ public class CategoriaDeServiciosService {
         //validar si existe esa categoria
         Optional<CategoriaDeServicios> optional = repository.findById(dto.getId());
         if(!optional.isPresent()){
-            return new ResponseEntity<>(new Message("No se encontro la categoria",TypesResponse.WARNING),HttpStatus.OK);
+            return new ResponseEntity<>(new Message("No se encontro la categoria",TypesResponse.WARNING),HttpStatus.BAD_REQUEST);
         }
 
         //poner primera   mayuscula y las demas minusculas
