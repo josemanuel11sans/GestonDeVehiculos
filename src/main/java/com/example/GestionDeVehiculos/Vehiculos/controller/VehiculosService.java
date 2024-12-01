@@ -3,6 +3,8 @@ package com.example.GestionDeVehiculos.Vehiculos.controller;
 import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
 import com.example.GestionDeVehiculos.Vehiculos.model.VehiculoDTO;
 import com.example.GestionDeVehiculos.Vehiculos.model.VehiculoRepository;
+import com.example.GestionDeVehiculos.Servicios.model.Servicios;
+import com.example.GestionDeVehiculos.Servicios.model.ServiciosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,15 @@ public class VehiculosService {
     @Autowired
     private VehiculoRepository vehiculoRepository;
 
+    @Autowired
+    private ServiciosRepository serviciosRepository;
+
     public Vehiculo registrarVehiculo(VehiculoDTO vehiculoDTO) {
-        Vehiculo vehiculo = toEntity(vehiculoDTO);
+        Vehiculo vehiculo = new Vehiculo();
+        vehiculo.setModelo(vehiculoDTO.getModelo());
+        vehiculo.setMarca(vehiculoDTO.getMarca());
+        vehiculo.setColor(vehiculoDTO.getColor());
+        vehiculo.setStatus(vehiculoDTO.isStatus());
         return vehiculoRepository.save(vehiculo);
     }
 
@@ -28,11 +37,15 @@ public class VehiculosService {
             vehiculo.setMarca(vehiculoDTO.getMarca());
             vehiculo.setColor(vehiculoDTO.getColor());
             vehiculo.setStatus(vehiculoDTO.isStatus());
-            vehiculo.setServicios(vehiculoDTO.getServicios());
             return toDTO(vehiculoRepository.save(vehiculo));
         } else {
             throw new IllegalArgumentException("Vehículo no encontrado con ID: " + vehiculoDTO.getId());
         }
+    }
+    public List<Vehiculo> consultarVehiculosActivos() {
+        return vehiculoRepository.findAll().stream()
+                .filter(Vehiculo::isStatus)
+                .toList();
     }
 
     public void cambiarEstadoVehiculo(Long id, boolean status) {
@@ -46,19 +59,24 @@ public class VehiculosService {
         }
     }
 
-    public List<Vehiculo> consultarVehiculosActivos() {
-        return vehiculoRepository.findActiveVehicles();
+    public void asignarServicio(Long vehiculoId, Long servicioId) {
+        Vehiculo vehiculo = vehiculoRepository.findById(vehiculoId)
+                .orElseThrow(() -> new IllegalArgumentException("Vehículo no encontrado con ID: " + vehiculoId));
+        Servicios servicio = serviciosRepository.findById(servicioId)
+                .orElseThrow(() -> new IllegalArgumentException("Servicio no encontrado con ID: " + servicioId));
+
+        vehiculo.getServicios().add(servicio);
+        vehiculoRepository.save(vehiculo);
     }
 
-    private Vehiculo toEntity(VehiculoDTO dto) {
-        Vehiculo vehiculo = new Vehiculo();
-        vehiculo.setId(dto.getId());
-        vehiculo.setModelo(dto.getModelo());
-        vehiculo.setMarca(dto.getMarca());
-        vehiculo.setColor(dto.getColor());
-        vehiculo.setStatus(dto.isStatus());
-        vehiculo.setServicios(dto.getServicios());
-        return vehiculo;
+    public void removerServicio(Long vehiculoId, Long servicioId) {
+        Vehiculo vehiculo = vehiculoRepository.findById(vehiculoId)
+                .orElseThrow(() -> new IllegalArgumentException("Vehículo no encontrado con ID: " + vehiculoId));
+        Servicios servicio = serviciosRepository.findById(servicioId)
+                .orElseThrow(() -> new IllegalArgumentException("Servicio no encontrado con ID: " + servicioId));
+
+        vehiculo.getServicios().remove(servicio);
+        vehiculoRepository.save(vehiculo);
     }
 
     private VehiculoDTO toDTO(Vehiculo vehiculo) {
