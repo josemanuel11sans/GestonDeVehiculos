@@ -31,8 +31,7 @@ public class Servicios {
 
     //NOTA: si se agrega una relacion se tiene que generar de nuevo este cosnstructor
 
-    public Servicios(Long id, String nombre, String descripcion, CategoriaDeServicios categoria, boolean status) {
-        this.id = id;
+    public Servicios( String nombre, String descripcion, CategoriaDeServicios categoria, boolean status) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.categoria = categoria;
