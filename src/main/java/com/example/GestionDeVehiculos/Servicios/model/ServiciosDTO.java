@@ -8,11 +8,11 @@ import jakarta.validation.constraints.NotNull;
 public class ServiciosDTO {
     @NotNull(groups = {ServiciosDTO.Modify.class, ServiciosDTO.ChangeStatus.class},message = "Es necesario el id")
     private Long id;
-    @NotBlank(groups = {ServiciosDTO.Modify.class, ServiciosDTO.ChangeStatus.class},message = "Es necesario el nombre")
+    @NotBlank(groups = { ServiciosDTO.Register.class},message = "Es necesario el nombre")
     private String nombre;
-    @NotBlank(groups = {ServiciosDTO.Modify.class, ServiciosDTO.ChangeStatus.class},message = "Es necesaria la descricion")
+    @NotBlank(groups = { ServiciosDTO.Register.class},message = "Es necesaria la descricion")
     private String descripcion;
-    @NotBlank(groups = {ServiciosDTO.Modify.class, ServiciosDTO.ChangeStatus.class},message = "Es necesaria la categoria")
+    @NotNull(groups = { ServiciosDTO.Register.class}, message = "Es necesaria la categoría")
     private CategoriaDeServicios categoria;
 
     public Long getId() {
