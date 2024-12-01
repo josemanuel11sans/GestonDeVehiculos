@@ -1,35 +1,14 @@
 package com.example.GestionDeVehiculos.Vehiculos.model;
 
 import com.example.GestionDeVehiculos.Servicios.model.Servicios;
-import jakarta.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "Vehiculo")
-public class Vehiculo {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class VehiculoDTO {
     private Long id;
-
-    @Column(name = "modelo", columnDefinition = "VARCHAR(100)", nullable = false)
     private String modelo;
-
-    @Column(name = "marca", columnDefinition = "VARCHAR(100)", nullable = false)
     private String marca;
-
-    @Column(name = "color", columnDefinition = "VARCHAR(50)", nullable = false)
     private String color;
-
-    @Column(name = "status", columnDefinition = "TINYINT", nullable = false)
     private boolean status;
-
-    @ManyToMany
-    @JoinTable(
-            name = "vehiculo_servicio",
-            joinColumns = @JoinColumn(name = "vehiculo_id"),
-            inverseJoinColumns = @JoinColumn(name = "servicio_id")
-    )
     private Set<Servicios> servicios;
 
     public Long getId() {

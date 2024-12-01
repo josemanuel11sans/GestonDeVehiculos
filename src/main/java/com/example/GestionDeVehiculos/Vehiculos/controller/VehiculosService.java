@@ -1,6 +1,7 @@
 package com.example.GestionDeVehiculos.Vehiculos.controller;
 
 import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
+import com.example.GestionDeVehiculos.Vehiculos.model.VehiculoDTO;
 import com.example.GestionDeVehiculos.Vehiculos.model.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,52 +13,62 @@ import java.util.Optional;
 public class VehiculosService {
 
     @Autowired
-    private VehiculoRepository vehiculosRepository;
+    private VehiculoRepository vehiculoRepository;
 
-    public Vehiculo registrarVehiculo(Vehiculo vehiculo) {
-        return vehiculosRepository.save(vehiculo);
+    public Vehiculo registrarVehiculo(VehiculoDTO vehiculoDTO) {
+        Vehiculo vehiculo = toEntity(vehiculoDTO);
+        return vehiculoRepository.save(vehiculo);
     }
 
-    public List<Vehiculo> consultarVehiculos() {
-        return vehiculosRepository.findAll();
+    public VehiculoDTO actualizarVehiculo(VehiculoDTO vehiculoDTO) {
+        Optional<Vehiculo> optionalVehiculo = vehiculoRepository.findById(vehiculoDTO.getId());
+        if (optionalVehiculo.isPresent()) {
+            Vehiculo vehiculo = optionalVehiculo.get();
+            vehiculo.setModelo(vehiculoDTO.getModelo());
+            vehiculo.setMarca(vehiculoDTO.getMarca());
+            vehiculo.setColor(vehiculoDTO.getColor());
+            vehiculo.setStatus(vehiculoDTO.isStatus());
+            vehiculo.setServicios(vehiculoDTO.getServicios());
+            return toDTO(vehiculoRepository.save(vehiculo));
+        } else {
+            throw new IllegalArgumentException("Vehículo no encontrado con ID: " + vehiculoDTO.getId());
+        }
+    }
+
+    public void cambiarEstadoVehiculo(Long id, boolean status) {
+        Optional<Vehiculo> optionalVehiculo = vehiculoRepository.findById(id);
+        if (optionalVehiculo.isPresent()) {
+            Vehiculo vehiculo = optionalVehiculo.get();
+            vehiculo.setStatus(status);
+            vehiculoRepository.save(vehiculo);
+        } else {
+            throw new IllegalArgumentException("Vehículo no encontrado con ID: " + id);
+        }
     }
 
     public List<Vehiculo> consultarVehiculosActivos() {
-        return vehiculosRepository.findAll().stream()
-                .filter(Vehiculo::isStatus)
-                .toList();
+        return vehiculoRepository.findActiveVehicles();
     }
 
-    public Vehiculo actualizarVehiculo(Long id, Vehiculo vehiculoActualizado) {
-        Optional<Vehiculo> vehiculoExistente = vehiculosRepository.findById(id);
-        if (vehiculoExistente.isPresent()) {
-            Vehiculo vehiculo = vehiculoExistente.get();
-            vehiculo.setModelo(vehiculoActualizado.getModelo());
-            vehiculo.setMarca(vehiculoActualizado.getMarca());
-            vehiculo.setColor(vehiculoActualizado.getColor());
-            vehiculo.setStatus(vehiculoActualizado.isStatus());
-            return vehiculosRepository.save(vehiculo);
-        } else {
-            throw new IllegalArgumentException("Vehículo no encontrado con ID: " + id);
-        }
+    private Vehiculo toEntity(VehiculoDTO dto) {
+        Vehiculo vehiculo = new Vehiculo();
+        vehiculo.setId(dto.getId());
+        vehiculo.setModelo(dto.getModelo());
+        vehiculo.setMarca(dto.getMarca());
+        vehiculo.setColor(dto.getColor());
+        vehiculo.setStatus(dto.isStatus());
+        vehiculo.setServicios(dto.getServicios());
+        return vehiculo;
     }
 
-    public Vehiculo cambiarEstadoVehiculo(Long id, boolean estado) {
-        Optional<Vehiculo> vehiculo = vehiculosRepository.findById(id);
-        if (vehiculo.isPresent()) {
-            Vehiculo v = vehiculo.get();
-            v.setStatus(estado);
-            return vehiculosRepository.save(v);
-        } else {
-            throw new IllegalArgumentException("Vehículo no encontrado con ID: " + id);
-        }
-    }
-
-    public Vehiculo asignarServicio(Long idVehiculo, Long idServicio) {
-        return null;
-    }
-
-    public Vehiculo removerServicio(Long idVehiculo) {
-        return null;
+    private VehiculoDTO toDTO(Vehiculo vehiculo) {
+        VehiculoDTO dto = new VehiculoDTO();
+        dto.setId(vehiculo.getId());
+        dto.setModelo(vehiculo.getModelo());
+        dto.setMarca(vehiculo.getMarca());
+        dto.setColor(vehiculo.getColor());
+        dto.setStatus(vehiculo.isStatus());
+        dto.setServicios(vehiculo.getServicios());
+        return dto;
     }
 }
