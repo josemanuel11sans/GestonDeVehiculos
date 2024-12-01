@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -18,8 +19,9 @@ public class UsuariosController {
     private UsuariosService usuariosService;
 
     @GetMapping
-    public ResponseEntity<List<Usuarios>> obtenerUsuarios() {
-        return ResponseEntity.ok(usuariosService.obtenerTodosLosUsuarios());
+    public ResponseEntity<Object> obtenerUsuarios() {
+        List<Usuarios> usuarios = usuariosService.obtenerTodosLosUsuarios();
+        return ResponseEntity.ok(Map.of("type", "SUCCESS", "result", usuarios));
     }
 
     @GetMapping("/{id}")
@@ -32,7 +34,7 @@ public class UsuariosController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<Object> crearUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
         try {
             Usuarios usuario = convertirDTOaEntidad(usuarioDTO);
