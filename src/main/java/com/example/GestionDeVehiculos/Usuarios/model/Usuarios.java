@@ -1,8 +1,13 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
+import com.example.GestionDeVehiculos.Role.model.Role;
 import jakarta.persistence.*;
+
+
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "usuarios")
@@ -25,9 +30,18 @@ public class Usuarios {
 
     @Column(name = "contraseña", columnDefinition = "VARCHAR(256)", nullable = false)
     private String contraseña;
+    //esto tiene que cambiar e uirse con la tabals de roles
+//    @Column(name = "rol", columnDefinition = "ENUM('admin', 'usuario') DEFAULT 'usuario'")
+//    private String rol;
 
-    @Column(name = "rol", columnDefinition = "ENUM('admin', 'usuario') DEFAULT 'usuario'")
-    private String rol;
+    //se agrego esta relacon de rol
+        @ManyToMany(fetch = FetchType.EAGER)
+        @JoinTable(
+                name = "user_roles",
+                joinColumns = @JoinColumn(name = "user_id"),
+                inverseJoinColumns = @JoinColumn(name = "role_id")
+        )
+        private Set<Role> roles = new HashSet<>();
 
     @Column(name = "status", columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean status;
@@ -38,15 +52,14 @@ public class Usuarios {
     public Usuarios() {
         this.fechaCreacion = Timestamp.from(Instant.now());
     }
-
-    public Usuarios(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, String rol, boolean status) {
+    //se quito la variable de rol
+    public Usuarios(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, boolean status) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.telefono = telefono;
         this.contraseña = contraseña;
-        this.rol = rol;
         this.status = status;
         this.fechaCreacion = Timestamp.from(Instant.now());
     }
@@ -69,10 +82,15 @@ public class Usuarios {
 
     public String getContraseña() { return contraseña; }
     public void setContraseña(String contraseña) { this.contraseña = contraseña; }
+//cambio de roles
+    public Set<Role> getRoles() {
+        return roles;
+    }
 
-    public String getRol() { return rol; }
-    public void setRol(String rol) { this.rol = rol; }
-
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+    //termina cambios de roles
     public boolean isStatus() { return status; }
     public void setStatus(boolean status) { this.status = status; }
 
