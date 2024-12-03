@@ -34,9 +34,6 @@ public class VehiculosService {
         vehiculo.setStatus(vehiculoDTO.isStatus());
         return vehiculoRepository.save(vehiculo);
     }
-    public List<Vehiculo> obtenerTodosVehiculos() {
-        return vehiculoRepository.findAll(); // Obtiene todos los vehículos sin filtrar por estado
-    }
 
     public VehiculoDTO actualizarVehiculo(VehiculoDTO vehiculoDTO) {
         Optional<Vehiculo> optionalVehiculo = vehiculoRepository.findById(vehiculoDTO.getId());

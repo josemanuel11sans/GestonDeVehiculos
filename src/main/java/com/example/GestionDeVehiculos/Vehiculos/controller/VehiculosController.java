@@ -16,6 +16,12 @@ public class VehiculosController {
     @Autowired
     private VehiculosService vehiculosService;
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Vehiculo>> obtenerTodosVehiculos() {
+        return ResponseEntity.ok(vehiculosService.obtenerTodosVehiculos());
+    }
+
+
     @PostMapping("/registrar")
     public ResponseEntity<Vehiculo> registrarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
         return ResponseEntity.ok(vehiculosService.registrarVehiculo(vehiculoDTO));
