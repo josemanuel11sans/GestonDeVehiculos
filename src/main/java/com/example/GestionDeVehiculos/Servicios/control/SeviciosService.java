@@ -1,7 +1,5 @@
 package com.example.GestionDeVehiculos.Servicios.control;
 
-import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServicios;
-import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServiciosRepository;
 import com.example.GestionDeVehiculos.Servicios.model.Servicios;
 import com.example.GestionDeVehiculos.Servicios.model.ServiciosDTO;
 import com.example.GestionDeVehiculos.Servicios.model.ServiciosRepository;
