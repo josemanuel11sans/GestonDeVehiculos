@@ -1,8 +1,8 @@
 package com.example.GestionDeVehiculos.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;//
+import org.springframework.context.annotation.Configuration;//
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -41,7 +41,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         //requestMatchers("/login", "/register").permitAll():
                         // Permite el acceso a las rutas /login y /register sin requerir autenticación.
-                        .requestMatchers("/login", "/register").permitAll()
+                        .requestMatchers("/login").permitAll()
                         //requestMatchers("/town/**").hasAuthority("ROLE_TOWN_ACCESS"):
                         // Las rutas que empiezan con /town/ solo pueden ser accesibles
                         // por usuarios con el rol ROLE_TOWN_ACCESS.
@@ -70,6 +70,8 @@ public class SecurityConfig {
                 // de leer el token JWT de las solicitudes entrantes, validar el token y, si es
                 // válido, establecer el contexto de autenticación.
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+
 
         return http.build();
     }
