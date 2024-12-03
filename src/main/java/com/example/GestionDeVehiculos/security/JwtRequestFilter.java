@@ -28,8 +28,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     //El constructor recibe las dependencias necesarias para trabajar con el filtro.
     // Spring inyecta las instancias de UserDetailsServiceImpl y JwtUtil a través de la anotación @Autowired.
     @Autowired
-    public JwtRequestFilter(UserDetailsServiceImpl userDetailsService, JwtUtil jwtUtil) {
-        this.userDetailsService = userDetailsService;
+    public JwtRequestFilter(UserDetailsServiceImpl usuariosDetailsService, JwtUtil jwtUtil) {
+        this.userDetailsService = usuariosDetailsService;
         this.jwtUtil = jwtUtil;
     }
     //Este es el corazón del filtro, donde se realizan las verificaciones del token JWT

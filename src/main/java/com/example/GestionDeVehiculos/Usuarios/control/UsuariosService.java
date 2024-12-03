@@ -49,7 +49,7 @@ public class UsuariosService {
         usuarioExistente.setEmail(usuario.getEmail());
         usuarioExistente.setTelefono(usuario.getTelefono());
         usuarioExistente.setContraseña(usuario.getContraseña());
-        usuarioExistente.setRol(usuario.getRol());
+        usuarioExistente.setRoles(usuario.getRoles());
         usuarioExistente.setStatus(usuario.isStatus());
 
         return usuariosRepository.save(usuarioExistente);

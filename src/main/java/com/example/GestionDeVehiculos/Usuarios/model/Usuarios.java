@@ -16,13 +16,13 @@ public class Usuarios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(name = "nombre", columnDefinition = "VARCHAR(40)")
     private String nombre;
 
-    @Column(name = "apellidos", columnDefinition = "VARCHAR(60)", nullable = false)
+    @Column(name = "apellidos", columnDefinition = "VARCHAR(60)")
     private String apellidos;
 
-    @Column(name = "email", columnDefinition = "VARCHAR(50)", unique = true, nullable = false)
+    @Column(name = "email", columnDefinition = "VARCHAR(50)", unique = true)
     private String email;
 
     @Column(name = "telefono", columnDefinition = "VARCHAR(15)")
@@ -30,18 +30,10 @@ public class Usuarios {
 
     @Column(name = "contraseña", columnDefinition = "VARCHAR(256)", nullable = false)
     private String contraseña;
-    //esto tiene que cambiar e uirse con la tabals de roles
-//    @Column(name = "rol", columnDefinition = "ENUM('admin', 'usuario') DEFAULT 'usuario'")
-//    private String rol;
 
-    //se agrego esta relacon de rol
-        @ManyToMany(fetch = FetchType.EAGER)
-        @JoinTable(
-                name = "user_roles",
-                joinColumns = @JoinColumn(name = "user_id"),
-                inverseJoinColumns = @JoinColumn(name = "role_id")
-        )
-        private Set<Role> roles = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     @Column(name = "status", columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean status;
@@ -52,16 +44,25 @@ public class Usuarios {
     public Usuarios() {
         this.fechaCreacion = Timestamp.from(Instant.now());
     }
-    //se quito la variable de rol
-    public Usuarios(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, boolean status) {
+
+    public Usuarios(String email, String contraseña) {
+        this.email = email;
+        this.contraseña = contraseña;
+    }
+
+    public Usuarios(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, Set<Role> roles, boolean status, Timestamp fechaCreacion) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.telefono = telefono;
         this.contraseña = contraseña;
-        this.status = status;
-        this.fechaCreacion = Timestamp.from(Instant.now());
+        this.roles = roles;
+        this.status = true;
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Usuarios(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, String rol, boolean b) {
     }
 
     // Getters y Setters
@@ -82,7 +83,7 @@ public class Usuarios {
 
     public String getContraseña() { return contraseña; }
     public void setContraseña(String contraseña) { this.contraseña = contraseña; }
-//cambio de roles
+    //cambio de roles
     public Set<Role> getRoles() {
         return roles;
     }

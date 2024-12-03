@@ -78,6 +78,11 @@ public class JwtUtil {
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, userDetails.getUsername());
     }
+
+    public long getExpirationTime() {
+        return expiration;
+    }
+
     //    createToken: Construye el JWT usando la librería Jwts.builder().
     //    setClaims: Establece los claims del token (en este caso, un mapa vacío).
     //    setSubject: Establece el "subject" del token (el nombre de usuario).
