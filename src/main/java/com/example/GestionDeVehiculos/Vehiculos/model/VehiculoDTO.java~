@@ -1,14 +1,10 @@
 package com.example.GestionDeVehiculos.Vehiculos.model;
 
 import com.example.GestionDeVehiculos.Servicios.model.Servicios;
-import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 public class VehiculoDTO {
-
-    @NotNull(groups = {ChangeStatus.class}, message = "Es necesario el ID del vehículo")
     private Long id;
-
     private String modelo;
     private String marca;
     private String color;
@@ -62,7 +58,4 @@ public class VehiculoDTO {
     public void setServicios(Set<Servicios> servicios) {
         this.servicios = servicios;
     }
-
-    // Interfaz de validación para cambio de estado
-    public interface ChangeStatus {}
 }

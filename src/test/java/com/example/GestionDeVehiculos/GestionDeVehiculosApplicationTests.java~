@@ -1,0 +1,33 @@
+package com.example.GestionDeVehiculos;
+
+import com.example.GestionDeVehiculos.Vehiculos.controller.VehiculosController;
+import com.example.GestionDeVehiculos.Vehiculos.controller.VehiculosService;
+import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class GestionDeVehiculosApplicationTests {
+
+    @Autowired
+    private VehiculosController vehiculosController;
+    @Autowired
+    private VehiculosService vehiculosService;
+
+	@Test
+	void contextLoads() {
+	}
+
+	@BeforeEach
+	public void setUp() {
+		Vehiculo vehiculo  = new Vehiculo();
+	}
+
+	public void cambiarEstadoVehiculo(Long id, boolean status) {
+		
+
+	}
+
+}
