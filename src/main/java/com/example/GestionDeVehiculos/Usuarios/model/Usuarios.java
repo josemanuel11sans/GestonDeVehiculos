@@ -2,6 +2,7 @@ package com.example.GestionDeVehiculos.Usuarios.model;
 
 import com.example.GestionDeVehiculos.Role.model.Role;
 import jakarta.persistence.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 
 import java.sql.Timestamp;
@@ -25,7 +26,7 @@ public class Usuarios {
     @Column(name = "email", columnDefinition = "VARCHAR(50)", unique = true)
     private String email;
 
-    @Column(name = "telefono", columnDefinition = "VARCHAR(15)")
+    @Column(name = "telefono", columnDefinition = "VARCHAR(13)")
     private String telefono;
 
     @Column(name = "contraseña", columnDefinition = "VARCHAR(256)", nullable = false)
@@ -33,6 +34,7 @@ public class Usuarios {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
     @Column(name = "status", columnDefinition = "BOOLEAN DEFAULT TRUE")
@@ -50,8 +52,7 @@ public class Usuarios {
         this.contraseña = contraseña;
     }
 
-    public Usuarios(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, Set<Role> roles, boolean status, Timestamp fechaCreacion) {
-        this.id = id;
+    public Usuarios( String nombre, String apellidos, String email, String telefono, String contraseña, Set<Role> roles) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
@@ -59,11 +60,11 @@ public class Usuarios {
         this.contraseña = contraseña;
         this.roles = roles;
         this.status = true;
-        this.fechaCreacion = fechaCreacion;
+        this.fechaCreacion  = Timestamp.from(Instant.now());
     }
 
-    public Usuarios(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, String rol, boolean b) {
-    }
+
+
 
     // Getters y Setters
     public Long getId() { return id; }

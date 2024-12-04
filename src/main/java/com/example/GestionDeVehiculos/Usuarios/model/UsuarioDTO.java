@@ -1,53 +1,38 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
+import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServiciosDTO;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public class UsuarioDTO {
+import java.util.Set;
 
+public class UsuarioDTO {
+    //@NotNull(groups = {CategoriaDeServiciosDTO.Modify.class, CategoriaDeServiciosDTO.ChangeStatus.class},message = "Es necesario el id")
     private Long id;
 
-    @NotBlank(message = "El nombre no puede estar vacío.")
-    @Size(max = 40, message = "El nombre no puede exceder los 40 caracteres.")
+    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, CategoriaDeServiciosDTO.Register.class}, message = "Es necesario el nombre")
     private String nombre;
 
-    @NotBlank(message = "Los apellidos no pueden estar vacíos.")
-    @Size(max = 60, message = "Los apellidos no pueden exceder los 60 caracteres.")
+    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los apellidos")
     private String apellidos;
 
-    @NotBlank(message = "El correo electrónico no puede estar vacío.")
-    @Email(message = "El correo electrónico debe ser válido.")
-    @Size(max = 50, message = "El correo electrónico no puede exceder los 50 caracteres.")
+    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesario el email")
     private String email;
 
-    @NotBlank(message = "El teléfono no puede estar vacío.")
-    @Pattern(regexp = "^[0-9]{10,15}$", message = "El teléfono debe contener entre 10 y 15 dígitos.")
+    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es nesesario el telefono")
     private String telefono;
 
-    @NotBlank(message = "La contraseña no puede estar vacía.")
-    @Size(min = 8, max = 256, message = "La contraseña debe tener entre 8 y 256 caracteres.")
+    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesaria la contraseña")
     private String contraseña;
 
-    @NotNull(message = "El rol es obligatorio.")
-    @Pattern(regexp = "^(admin|usuario)$", message = "El rol debe ser 'admin' o 'usuario'.")
-    private String rol;
+    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
+    private Set<String> roles;
 
-    private Boolean status;
 
-    public UsuarioDTO() {}
-
-    public UsuarioDTO(Long id, String nombre, String apellidos, String email, String telefono, String contraseña, String rol, Boolean status) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.telefono = telefono;
-        this.contraseña = contraseña;
-        this.rol = rol;
-        this.status = status;
+    public UsuarioDTO() {
     }
 
     public Long getId() {
@@ -98,19 +83,21 @@ public class UsuarioDTO {
         this.contraseña = contraseña;
     }
 
-    public String getRol() {
-        return rol;
+    public Set<String> getRoles() {
+        return roles;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
     }
 
-    public Boolean getStatus() {
-        return status;
+    //interfaces
+    public interface Register {
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
+    public interface Modify {
+    }
+
+    public interface ChangeStatus {
     }
 }

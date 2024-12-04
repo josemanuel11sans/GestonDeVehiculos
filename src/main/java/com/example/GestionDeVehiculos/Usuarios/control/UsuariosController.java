@@ -18,64 +18,64 @@ public class UsuariosController {
     @Autowired
     private UsuariosService usuariosService;
 
-    @GetMapping("/all")
-    public ResponseEntity<Object> obtenerUsuarios() {
-        List<Usuarios> usuarios = usuariosService.obtenerTodosLosUsuarios();
-        return ResponseEntity.ok(Map.of("type", "SUCCESS", "result", usuarios));
-    }
+//    @GetMapping("/all")
+//    public ResponseEntity<Object> obtenerUsuarios() {
+//        List<Usuarios> usuarios = usuariosService.obtenerTodosLosUsuarios();
+//        return ResponseEntity.ok(Map.of("type", "SUCCESS", "result", usuarios));
+//    }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> obtenerUsuarioPorId(@PathVariable Long id) {
-        try {
-            Usuarios usuario = usuariosService.obtenerUsuarioPorId(id);
-            return ResponseEntity.ok(usuario);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(e.getMessage()));
-        }
-    }   
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Object> obtenerUsuarioPorId(@PathVariable Long id) {
+//        try {
+//            Usuarios usuario = usuariosService.obtenerUsuarioPorId(id);
+//            return ResponseEntity.ok(usuario);
+//        } catch (IllegalArgumentException e) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(e.getMessage()));
+//        }
+//    }
 
-    @PostMapping("/save")
-    public ResponseEntity<Object> crearUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
-        try {
-            Usuarios usuario = convertirDTOaEntidad(usuarioDTO);
-            Usuarios nuevoUsuario = usuariosService.crearUsuario(usuario);
-            return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(e.getMessage()));
-        }
-    }
+//    @PostMapping("/save")
+//    public ResponseEntity<Object> crearUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
+//        try {
+//            Usuarios usuario = convertirDTOaEntidad(usuarioDTO);
+//            Usuarios nuevoUsuario = usuariosService.crearUsuario(usuario);
+//            return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);
+//        } catch (IllegalArgumentException e) {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(e.getMessage()));
+//        }
+//    }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Object> actualizarUsuario(@PathVariable Long id, @RequestBody @Valid UsuarioDTO usuarioDTO) {
-        try {
-            Usuarios usuario = convertirDTOaEntidad(usuarioDTO);
-            Usuarios usuarioActualizado = usuariosService.actualizarUsuario(id, usuario);
-            return ResponseEntity.ok(usuarioActualizado);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(e.getMessage()));
-        }
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Object> actualizarUsuario(@PathVariable Long id, @RequestBody @Valid UsuarioDTO usuarioDTO) {
+//        try {
+//            Usuarios usuario = convertirDTOaEntidad(usuarioDTO);
+//            Usuarios usuarioActualizado = usuariosService.actualizarUsuario(id, usuario);
+//            return ResponseEntity.ok(usuarioActualizado);
+//        } catch (IllegalArgumentException e) {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(e.getMessage()));
+//        }
+//    }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id) {
-        try {
-            usuariosService.eliminarUsuario(id);
-            return ResponseEntity.noContent().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id) {
+//        try {
+//            usuariosService.eliminarUsuario(id);
+//            return ResponseEntity.noContent().build();
+//        } catch (IllegalArgumentException e) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//        }
+//    }
 
-    private Usuarios convertirDTOaEntidad(UsuarioDTO usuarioDTO) {
-        return new Usuarios(usuarioDTO.getId(),
-                usuarioDTO.getNombre(),
-                usuarioDTO.getApellidos(),
-                usuarioDTO.getEmail(),
-                usuarioDTO.getTelefono(),
-                usuarioDTO.getContraseña(),
-                usuarioDTO.getRol(),
-                usuarioDTO.getStatus() != null ? usuarioDTO.getStatus() : true);
-    }
+//    private Usuarios convertirDTOaEntidad(UsuarioDTO usuarioDTO) {
+//        return new Usuarios(usuarioDTO.getId(),
+//                usuarioDTO.getNombre(),
+//                usuarioDTO.getApellidos(),
+//                usuarioDTO.getEmail(),
+//                usuarioDTO.getTelefono(),
+//                usuarioDTO.getContraseña(),
+//                usuarioDTO.getRol(),
+//                usuarioDTO.getStatus() != null ? usuarioDTO.getStatus() : true);
+//    }
 
     public static class ErrorResponse {
         private String message;

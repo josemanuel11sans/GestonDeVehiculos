@@ -45,13 +45,17 @@ public class SecurityConfig {
                         //requestMatchers("/town/**").hasAuthority("ROLE_TOWN_ACCESS"):
                         // Las rutas que empiezan con /town/ solo pueden ser accesibles
                         // por usuarios con el rol ROLE_TOWN_ACCESS.
-                        .requestMatchers("/servicios/**").hasAnyAuthority("SIMPLE","ADMIN")
+                        .requestMatchers("/servicios/**").permitAll()
+                        //.hasAnyAuthority("SIMPLE","ADMIN")
                         //requestMatchers("/state/**").hasAuthority("ROLE_STATE_ACCESS"):
                         // Las rutas que empiezan con /state/ solo pueden ser accesibles
                         // por usuarios con el rol ROLE_STATE_ACCESS.
-                        .requestMatchers("/usuarios/**").hasAuthority("ADMIN")
-                        .requestMatchers("/vehiculos/**").hasAuthority("ADMIN")
-                        .requestMatchers("/CategoriasDeServicios/**").hasAuthority("ADMIN")
+                        .requestMatchers("/usuarios/**").permitAll()
+                        //.hasAuthority("ADMIN")
+                        .requestMatchers("/vehiculos/**").permitAll()
+                        //.hasAuthority("ADMIN")
+                        .requestMatchers("/CategoriasDeServicios/**").permitAll()
+                        //.hasAuthority("ADMIN")
                         //anyRequest().authenticated():
                         // Requiere autenticación para cualquier otra ruta que no se haya
                         // especificado previamente.

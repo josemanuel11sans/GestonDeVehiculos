@@ -1,75 +1,95 @@
 package com.example.GestionDeVehiculos.Usuarios.control;
 
+import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServiciosDTO;
+import com.example.GestionDeVehiculos.Usuarios.model.UsuarioDTO;
 import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
 import com.example.GestionDeVehiculos.Usuarios.model.UsuariosRepository;
+import com.example.GestionDeVehiculos.Utils.Message;
+import com.example.GestionDeVehiculos.Utils.TypesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class UsuariosService {
-
-    @Autowired
     private UsuariosRepository usuariosRepository;
 
-    public Usuarios crearUsuario(Usuarios usuario) {
-        if (usuariosRepository.existsByEmail(usuario.getEmail())) {
-            throw new IllegalArgumentException("El correo electrónico ya está registrado.");
+    @Autowired
+    public UsuariosService(UsuariosRepository usuariosRepository) {
+        this.usuariosRepository = usuariosRepository;
+    }
+        //registar usuario
+    @Transactional(rollbackFor = {SQLException.class})
+    public ResponseEntity<Object> GuardarUsuario(UsuarioDTO dto){
+        //tamaño del nombre
+        if(dto.getNombre().length()<3){
+            return  new ResponseEntity<>(new Message("El nombre no puede tener menos de 3 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        } else if (dto.getNombre().length()>40) {
+            return  new ResponseEntity<>(new Message("El nombre no puede se mayor a 50 caractres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
         }
-        if (usuariosRepository.existsByTelefono(usuario.getTelefono())) {
-            throw new IllegalArgumentException("El número de teléfono ya está registrado.");
+        //tamaño de los appellidos
+        if(dto.getApellidos().length()<3){
+            return  new ResponseEntity<>(new Message("Los apellidos no pueden tener menos de 3 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        } else if (dto.getApellidos()   .length()>60) {
+            return  new ResponseEntity<>(new Message("Los apellidos no pueden tener mas de 60 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
         }
-        usuario.setFechaCreacion(Timestamp.from(Instant.now()));
-        return usuariosRepository.save(usuario);
+        //tamaño del email
+        if(dto.getEmail().length()<5){
+            return  new ResponseEntity<>(new Message("El email no puede tener menos de 5 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        } else if (dto.getEmail().length()>50) {
+            return  new ResponseEntity<>(new Message("Email no pueden tener mas de 50 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        }
+        //tamaño de el telefono
+        if(dto.getTelefono().length()<10){
+            return  new ResponseEntity<>(new Message("El telefono no puede ser menor a 10 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        } else if (dto.getTelefono().length()>13) {
+            return  new ResponseEntity<>(new Message("El telefono no pueden tener mas de 13 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        }
+        //tamaño de la contraseña
+        if(dto.getContraseña().length()<4){
+            return  new ResponseEntity<>(new Message("la contraseña no puede ser menor a 4 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        } else if (dto.getContraseña().length()>256) {
+            return  new ResponseEntity<>(new Message("La contraseña no pueden tener mas de 256 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        }
+        //validar si el email ya existe
+        Optional<Usuarios> optionalUsuarios = usuariosRepository.searchUsuariosByEmail(dto.getEmail());
+        if(optionalUsuarios.isPresent()){
+            return new ResponseEntity<>(new Message("El Correo electronico ya existe",TypesResponse.WARNING),HttpStatus.BAD_REQUEST);
+        }
+        dto.setNombre(capitalizarPrimeraLetra(dto.getNombre()));
+        dto.setApellidos(capitalizarPrimeraLetra(dto.getApellidos()));
+        dto.setEmail(capitalizarPrimeraLetra(dto.getEmail()));
+        dto.setNombre(capitalizarPrimeraLetra(dto.getNombre()));
+        dto.setTelefono(capitalizarPrimeraLetra(dto.getTelefono()));
+        dto.setContraseña(encriptarContraseña(dto.getContraseña()));
+
+        //Usuarios usuario = new Usuarios(dto.getNombre(),dto.getApellidos(), dto.getEmail(),dto.getTelefono(), dto.getContraseña(), dto.getRoles());
+        return null;
     }
 
-    public Usuarios actualizarUsuario(Long id, Usuarios usuario) {
-        Usuarios usuarioExistente = usuariosRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException("Usuario no encontrado con el ID: " + id));
+    //funciones:
 
-        // Validar correo electrónico duplicado
-        if (!usuarioExistente.getEmail().equals(usuario.getEmail()) &&
-                usuariosRepository.existsByEmail(usuario.getEmail())) {
-            throw new IllegalArgumentException("El correo electrónico ya está registrado.");
-        }
-
-        // Validar teléfono duplicado
-        if (!usuarioExistente.getTelefono().equals(usuario.getTelefono()) &&
-                usuariosRepository.existsByTelefono(usuario.getTelefono())) {
-            throw new IllegalArgumentException("El número de teléfono ya está registrado.");
-        }
-
-        // Actualizar campos del usuario
-        usuarioExistente.setNombre(usuario.getNombre());
-        usuarioExistente.setApellidos(usuario.getApellidos());
-        usuarioExistente.setEmail(usuario.getEmail());
-        usuarioExistente.setTelefono(usuario.getTelefono());
-        usuarioExistente.setContraseña(usuario.getContraseña());
-        usuarioExistente.setRoles(usuario.getRoles());
-        usuarioExistente.setStatus(usuario.isStatus());
-
-        return usuariosRepository.save(usuarioExistente);
+    //funcion poner primerra letra en mayuscula
+    public static String capitalizarPrimeraLetra(String texto) {
+        // Convierte toda la cadena a min&uacute;sculas.
+        texto = texto.toLowerCase();
+        // Convierte la primera letra a mayúsculas y la concatena con el resto.
+        return texto.substring(0, 1).toUpperCase() + texto.substring(1);
     }
-
-    public Usuarios obtenerUsuarioPorId(Long id) {
-        return usuariosRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException("Usuario no encontrado con el ID: " + id));
-    }
-
-    public boolean eliminarUsuario(Long id) {
-        Usuarios usuario = usuariosRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException("Usuario no encontrado con el ID: " + id));
-        usuario.setStatus(false); // Cambiar estado en lugar de eliminar físicamente
-        usuariosRepository.save(usuario);
-        return true;
-    }
-
-    public List<Usuarios> obtenerTodosLosUsuarios() {
-        return usuariosRepository.findAll();
+    // Método para encriptar una contraseña
+    public static String encriptarContraseña(String contraseña) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder.encode(contraseña);
     }
 }
 
