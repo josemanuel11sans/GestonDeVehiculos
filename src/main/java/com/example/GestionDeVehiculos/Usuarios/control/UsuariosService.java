@@ -81,6 +81,24 @@ public class UsuariosService {
         return new ResponseEntity<>(new Message(usuario, "Se registró el usuario", TypesResponse.SUCCESS), HttpStatus.OK);
 
     }
+//   - Consultar usuarios
+
+    @Transactional(readOnly = true)
+    public ResponseEntity<Object> findAll() {
+        return new ResponseEntity<>(new Message(usuariosRepository.findAll(), "Listado de usuarios", TypesResponse.SUCCESS), HttpStatus.OK);
+    }
+//- Editar usuarios
+//- Cambio de estado de usuarios (habilitar / deshabilitar)
+//- Iniciar sesión
+//- Cerrar sesión
+//- Consultar perfil — Menos prioridad
+//- Editar perfil — Menos prioridad
+//- Cambio de contraseña - Perfil — Menos prioridad
+//- Solicitud de cambio de contraseña — Menos prioridad
+//- Cambio de contraseña por solicitud — Menos prioridad
+
+
+
 
     //funciones:
 

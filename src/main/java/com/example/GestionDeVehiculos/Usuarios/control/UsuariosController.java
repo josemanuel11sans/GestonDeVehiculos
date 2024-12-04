@@ -26,6 +26,10 @@ public class UsuariosController {
     public ResponseEntity<Object> save(@Validated(UsuarioDTO.Register.class) @RequestBody UsuarioDTO dto) {
         return service.GuardarUsuario(dto);
     }
+    @GetMapping("/all")
+    public  ResponseEntity<Object> ListarUsuarios(){
+        return  service.findAll();
+    }
 
 
 }

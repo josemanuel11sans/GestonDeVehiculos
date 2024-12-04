@@ -25,6 +25,7 @@ public class ServiciosController {
         return  service.ConsultarServicio();
     }
 
+
     @GetMapping("/activos")
     public ResponseEntity<Object> listadoActivos(){return service.ServiciosActivos();}
 

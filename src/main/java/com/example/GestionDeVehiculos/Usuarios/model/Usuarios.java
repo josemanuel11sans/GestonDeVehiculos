@@ -1,6 +1,7 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
 import com.example.GestionDeVehiculos.Role.model.Role;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
 
@@ -34,7 +35,7 @@ public class Usuarios {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    @JsonIgnore
+    @JsonBackReference
     private Set<Role> roles = new HashSet<>();
 
     @Column(name = "status", columnDefinition = "BOOLEAN DEFAULT TRUE")

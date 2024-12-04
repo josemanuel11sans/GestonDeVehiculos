@@ -1,6 +1,7 @@
 package com.example.GestionDeVehiculos.Role.model;
 
 import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +18,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
+    @JsonManagedReference
     private Set<Usuarios> users = new HashSet<>();
 
     public Role(String roleStateAccess) {}
