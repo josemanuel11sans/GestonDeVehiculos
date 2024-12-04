@@ -1,5 +1,6 @@
 package com.example.GestionDeVehiculos.Usuarios.control;
 
+import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServicios;
 import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServiciosDTO;
 import com.example.GestionDeVehiculos.Usuarios.model.UsuarioDTO;
 import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
@@ -88,8 +89,78 @@ public class UsuariosService {
         return new ResponseEntity<>(new Message(usuariosRepository.findAll(), "Listado de usuarios", TypesResponse.SUCCESS), HttpStatus.OK);
     }
 //- Editar usuarios
+@Transactional(rollbackFor = {SQLException.class})
+public ResponseEntity<Object> actualizarUsuario(UsuarioDTO dto){
+    //tamaño del nombre
+    if(dto.getNombre().length()<3){
+        return  new ResponseEntity<>(new Message("El nombre no puede tener menos de 3 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    } else if (dto.getNombre().length()>40) {
+        return  new ResponseEntity<>(new Message("El nombre no puede se mayor a 50 caractres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    }
+    //tamaño de los appellidos
+    if(dto.getApellidos().length()<3){
+        return  new ResponseEntity<>(new Message("Los apellidos no pueden tener menos de 3 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    } else if (dto.getApellidos()   .length()>60) {
+        return  new ResponseEntity<>(new Message("Los apellidos no pueden tener mas de 60 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    }
+    //tamaño del email
+    if(dto.getEmail().length()<5){
+        return  new ResponseEntity<>(new Message("El email no puede tener menos de 5 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    } else if (dto.getEmail().length()>50) {
+        return  new ResponseEntity<>(new Message("Email no pueden tener mas de 50 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    }
+    //tamaño de el telefono
+    if(dto.getTelefono().length()<10){
+        return  new ResponseEntity<>(new Message("El telefono no puede ser menor a 10 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    } else if (dto.getTelefono().length()>13) {
+        return  new ResponseEntity<>(new Message("El telefono no pueden tener mas de 13 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    }
+    //tamaño de la contraseña
+    if(dto.getContraseña().length()<4){
+        return  new ResponseEntity<>(new Message("la contraseña no puede ser menor a 4 caracteres", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    } else if (dto.getContraseña().length()>256) {
+        return  new ResponseEntity<>(new Message("La contraseña no pueden tener mas de 256 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    }
+    //validar si el email ya existe
+    Optional<Usuarios> optionalUsuarios = usuariosRepository.searchUsuariosByEmail(dto.getEmail());
+    if(optionalUsuarios.isPresent() && !optionalUsuarios.get().getId().equals(dto.getId())) {
+        return new ResponseEntity<>(new Message("El Correo electronico ya existe", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    }
+    dto.setNombre(capitalizarPrimeraLetra(dto.getNombre()));
+    dto.setApellidos(capitalizarPrimeraLetra(dto.getApellidos()));
+
+    Usuarios usuarios = optionalUsuarios.get();
+    usuarios.setNombre(dto.getNombre());
+    usuarios.setApellidos(dto.getApellidos());
+    usuarios.setEmail(dto.getEmail());
+    usuarios.setTelefono(dto.getTelefono());
+    usuarios.setContraseña(dto.getContraseña());
+    usuarios.setRoles(dto.getRoles());
+
+    usuarios = usuariosRepository.saveAndFlush(usuarios);
+    if(usuarios == null){
+        return new ResponseEntity<>(new Message("No se modificó el suario", TypesResponse.ERROR), HttpStatus.BAD_REQUEST);
+    }
+    return new ResponseEntity<>(new Message(usuarios, "Se modifico el usuario", TypesResponse.SUCCESS), HttpStatus.OK);
+}
 //- Cambio de estado de usuarios (habilitar / deshabilitar)
+@Transactional(rollbackFor = {SQLException.class})
+public ResponseEntity<Object>  cambiarStatus(UsuarioDTO dto){
+    Optional<Usuarios> optional = usuariosRepository.findById(dto.getId());
+    if(!optional.isPresent()){
+        return new ResponseEntity<>(new Message( "No se encontro el usuario", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+    }
+
+    Usuarios usuarios = optional.get();
+    usuarios.setStatus(!usuarios.isStatus());
+    usuarios = usuariosRepository.saveAndFlush(usuarios);
+    if(usuarios == null){
+        return new ResponseEntity<>(new Message("No se pudo modificar el estado de el usuario ", TypesResponse.ERROR), HttpStatus.BAD_REQUEST);
+    }
+    return new ResponseEntity<>(new Message(usuarios, "Se modificó el estado del usuario", TypesResponse.SUCCESS), HttpStatus.OK);
+}
 //- Iniciar sesión
+    //se implementaa con securyyty login
 //- Cerrar sesión
 //- Consultar perfil — Menos prioridad
 //- Editar perfil — Menos prioridad

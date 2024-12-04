@@ -76,7 +76,7 @@ public class CategoriaDeServiciosService {
     dto.setNombre(dto.getNombre().toUpperCase());
     if(dto.getNombre().length()<3){
         return  new ResponseEntity<>(new Message("El nombre no puede tener menos de 3 caracteres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
-    } else if (dto.getNombre().length()>50) {
+    } else if (dto.getNombre().length()>5add0) {
         return  new ResponseEntity<>(new Message("El nombre no puede se mayor a 50 caractres",TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
     }
         //validacion para identificar si el nombre ya existe

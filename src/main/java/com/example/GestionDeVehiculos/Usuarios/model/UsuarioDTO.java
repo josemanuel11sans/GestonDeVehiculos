@@ -11,25 +11,25 @@ import jakarta.validation.constraints.Size;
 import java.util.Set;
 
 public class UsuarioDTO {
-    //@NotNull(groups = {CategoriaDeServiciosDTO.Modify.class, CategoriaDeServiciosDTO.ChangeStatus.class},message = "Es necesario el id")
+    @NotNull(groups = {CategoriaDeServiciosDTO.Modify.class, CategoriaDeServiciosDTO.ChangeStatus.class},message = "Es necesario el id")
     private Long id;
 
-    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, CategoriaDeServiciosDTO.Register.class}, message = "Es necesario el nombre")
+    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, CategoriaDeServiciosDTO.Register.class}, message = "Es necesario el nombre")
     private String nombre;
 
-    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los apellidos")
+    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los apellidos")
     private String apellidos;
 
-    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesario el email")
+    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesario el email")
     private String email;
 
-    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es nesesario el telefono")
+    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es nesesario el telefono")
     private String telefono;
 
-    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesaria la contraseña")
+    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesaria la contraseña")
     private String contraseña;
 
-    //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
+    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
     private Set<Role> roles;
 
 

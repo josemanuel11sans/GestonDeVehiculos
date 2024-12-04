@@ -1,11 +1,11 @@
 package com.example.GestionDeVehiculos.Usuarios.control;
 
+
 import com.example.GestionDeVehiculos.Servicios.model.ServiciosDTO;
 import com.example.GestionDeVehiculos.Usuarios.model.UsuarioDTO;
-import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
-import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +30,15 @@ public class UsuariosController {
     public  ResponseEntity<Object> ListarUsuarios(){
         return  service.findAll();
     }
-
-
+    @PutMapping("/actualizar")
+    public ResponseEntity<Object> actualizar(@Validated(UsuarioDTO.Modify.class) @RequestBody UsuarioDTO dto){
+        return service.actualizarUsuario(dto);
+    }
+    @PutMapping("/status")
+    public ResponseEntity<Object> changeStatus(@Validated(UsuarioDTO.ChangeStatus.class) @RequestBody UsuarioDTO dto){
+        return service.cambiarStatus(dto);
+    }
 }
+
+
+
