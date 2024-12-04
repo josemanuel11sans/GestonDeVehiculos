@@ -73,8 +73,13 @@ public class UsuariosService {
         dto.setTelefono(capitalizarPrimeraLetra(dto.getTelefono()));
         dto.setContraseña(encriptarContraseña(dto.getContraseña()));
 
-        //Usuarios usuario = new Usuarios(dto.getNombre(),dto.getApellidos(), dto.getEmail(),dto.getTelefono(), dto.getContraseña(), dto.getRoles());
-        return null;
+        Usuarios usuario = new Usuarios(dto.getNombre(),dto.getApellidos(), dto.getEmail(),dto.getTelefono(), dto.getContraseña(), dto.getRoles(),true);
+        usuario = usuariosRepository.saveAndFlush(usuario);
+        if(usuario == null){
+            return new ResponseEntity<>(new Message("No se registro el usuario", TypesResponse.ERROR), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(new Message(usuario, "Se registró el usuario", TypesResponse.SUCCESS), HttpStatus.OK);
+
     }
 
     //funciones:

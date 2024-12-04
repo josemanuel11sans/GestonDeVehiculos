@@ -52,17 +52,16 @@ public class Usuarios {
         this.contraseña = contraseña;
     }
 
-    public Usuarios( String nombre, String apellidos, String email, String telefono, String contraseña, Set<Role> roles) {
+    public Usuarios( String nombre, String apellidos, String email, String telefono, String contraseña, Set<Role> roles, boolean status) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.telefono = telefono;
         this.contraseña = contraseña;
         this.roles = roles;
-        this.status = true;
+        this.status = status;
         this.fechaCreacion  = Timestamp.from(Instant.now());
     }
-
 
 
 

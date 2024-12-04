@@ -1,6 +1,7 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
 import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServiciosDTO;
+import com.example.GestionDeVehiculos.Role.model.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,7 +30,7 @@ public class UsuarioDTO {
     private String contraseña;
 
     //@NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
-    private Set<String> roles;
+    private Set<Role> roles;
 
 
     public UsuarioDTO() {
@@ -83,11 +84,11 @@ public class UsuarioDTO {
         this.contraseña = contraseña;
     }
 
-    public Set<String> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<String> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
