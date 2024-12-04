@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/usuarios")
 public class UsuariosController {
 
     @Autowired
     private UsuariosService usuariosService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<Object> obtenerUsuarios() {
         List<Usuarios> usuarios = usuariosService.obtenerTodosLosUsuarios();
         return ResponseEntity.ok(Map.of("type", "SUCCESS", "result", usuarios));
@@ -32,7 +32,7 @@ public class UsuariosController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(e.getMessage()));
         }
-    }
+    }   
 
     @PostMapping("/save")
     public ResponseEntity<Object> crearUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
@@ -67,16 +67,14 @@ public class UsuariosController {
     }
 
     private Usuarios convertirDTOaEntidad(UsuarioDTO usuarioDTO) {
-        return new Usuarios(
-                usuarioDTO.getId(),
+        return new Usuarios(usuarioDTO.getId(),
                 usuarioDTO.getNombre(),
                 usuarioDTO.getApellidos(),
                 usuarioDTO.getEmail(),
                 usuarioDTO.getTelefono(),
                 usuarioDTO.getContraseña(),
                 usuarioDTO.getRol(),
-                usuarioDTO.getStatus() != null ? usuarioDTO.getStatus() : true
-        );
+                usuarioDTO.getStatus() != null ? usuarioDTO.getStatus() : true);
     }
 
     public static class ErrorResponse {

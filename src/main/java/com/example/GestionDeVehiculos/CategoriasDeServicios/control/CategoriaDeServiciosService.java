@@ -105,7 +105,6 @@ public class CategoriaDeServiciosService {
         return new ResponseEntity<>(new Message(categoriaDeServicios, "Se registró la Categoria", TypesResponse.SUCCESS), HttpStatus.OK);
     }
 
-
     ////////////////////////
     //ACTUALIZAR CATEGORIA//
     ////////////////////////
