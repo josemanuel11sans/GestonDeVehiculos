@@ -17,8 +17,8 @@ public class VehiculosController {
     private VehiculosService vehiculosService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Vehiculo>> obtenerTodosVehiculos() {
-        return ResponseEntity.ok(vehiculosService.obtenerTodosVehiculos());
+    public ResponseEntity<List<Vehiculo>> consultarVehiculos() {
+        return ResponseEntity.ok(vehiculosService.consultarVehiculos());
     }
 
 
