@@ -56,4 +56,7 @@ public class CategoriaDeServicios {
         this.status = status;
     }
 
+    public void setActiva(boolean b) {
+        this.status = !b;
+    }
 }
