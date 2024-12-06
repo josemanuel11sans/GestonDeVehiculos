@@ -20,6 +20,10 @@ public class VehiculosService {
     @Autowired
     private ServiciosRepository serviciosRepository;
 
+    public List<Vehiculo> consultarVehiculos() {
+        return vehiculoRepository.findAll();
+    }
+
     public Vehiculo registrarVehiculo(VehiculoDTO vehiculoDTO) {
         Vehiculo vehiculo = new Vehiculo();
         vehiculo.setModelo(vehiculoDTO.getModelo());
