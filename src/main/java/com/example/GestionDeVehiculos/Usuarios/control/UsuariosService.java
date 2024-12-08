@@ -29,7 +29,16 @@ public class UsuariosService {
     public UsuariosService(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
     }
-        //registar usuario
+    //   - registar usuario
+            //Ejemplo
+            //    {
+            //        "nombre": "user5",
+            //            "apellidos": "apellidosUser5",
+            //            "email": "user5@gmail.com",
+            //            "telefono": "77774457253",
+            //            "contraseña": "root",
+            //            "admin":"ROLE_USER" //usar ROLE_USER O ROLE_ADMIN
+            //    }
     @Transactional(rollbackFor = {SQLException.class})
     public ResponseEntity<Object> GuardarUsuario(UsuarioDTO dto){
         //tamaño del nombre
@@ -73,8 +82,9 @@ public class UsuariosService {
         dto.setNombre(capitalizarPrimeraLetra(dto.getNombre()));
         dto.setTelefono(capitalizarPrimeraLetra(dto.getTelefono()));
         dto.setContraseña(encriptarContraseña(dto.getContraseña()));
+        dto.setAdmin("ROLE_USER");
 
-        Usuarios usuario = new Usuarios(dto.getNombre(),dto.getApellidos(), dto.getEmail(),dto.getTelefono(), dto.getContraseña(), dto.getRoles(),true);
+        Usuarios usuario = new Usuarios(dto.getNombre(),dto.getApellidos(), dto.getEmail(),dto.getTelefono(), dto.getContraseña(), dto.getAdmin(),true);
         usuario = usuariosRepository.saveAndFlush(usuario);
         if(usuario == null){
             return new ResponseEntity<>(new Message("No se registro el usuario", TypesResponse.ERROR), HttpStatus.BAD_REQUEST);
@@ -82,7 +92,7 @@ public class UsuariosService {
         return new ResponseEntity<>(new Message(usuario, "Se registró el usuario", TypesResponse.SUCCESS), HttpStatus.OK);
 
     }
-//   - Consultar usuarios
+    //   - Consultar usuarios
 
     @Transactional(readOnly = true)
     public ResponseEntity<Object> findAll() {
@@ -135,7 +145,7 @@ public ResponseEntity<Object> actualizarUsuario(UsuarioDTO dto){
     usuarios.setEmail(dto.getEmail());
     usuarios.setTelefono(dto.getTelefono());
     usuarios.setContraseña(dto.getContraseña());
-    usuarios.setRoles(dto.getRoles());
+    usuarios.setAdmin(dto.getAdmin());
 
     usuarios = usuariosRepository.saveAndFlush(usuarios);
     if(usuarios == null){

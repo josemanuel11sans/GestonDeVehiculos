@@ -1,6 +1,6 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
-import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServicios;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

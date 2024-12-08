@@ -1,6 +1,6 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
-import com.example.GestionDeVehiculos.Role.model.Role;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
@@ -33,10 +33,13 @@ public class Usuarios {
     @Column(name = "contraseña", columnDefinition = "VARCHAR(256)", nullable = false)
     private String contraseña;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    @JsonBackReference
-    private Set<Role> roles = new HashSet<>();
+    @Column(name = "admin", columnDefinition = "VARCHAR(20) DEFAULT 'ROLE_USER'")
+    private String admin;
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+//    @JsonBackReference
+//    private Set<Role> roles = new HashSet<>();
 
     @Column(name = "status", columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean status;
@@ -53,13 +56,13 @@ public class Usuarios {
         this.contraseña = contraseña;
     }
 
-    public Usuarios( String nombre, String apellidos, String email, String telefono, String contraseña, Set<Role> roles, boolean status) {
+    public Usuarios( String nombre, String apellidos, String email, String telefono, String contraseña, String admin, boolean status) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.telefono = telefono;
         this.contraseña = contraseña;
-        this.roles = roles;
+        this.admin = admin;
         this.status = status;
         this.fechaCreacion  = Timestamp.from(Instant.now());
     }
@@ -85,13 +88,15 @@ public class Usuarios {
     public String getContraseña() { return contraseña; }
     public void setContraseña(String contraseña) { this.contraseña = contraseña; }
     //cambio de roles
-    public Set<Role> getRoles() {
-        return roles;
+
+    public String getAdmin() {
+        return admin;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setAdmin(String admin) {
+        this.admin = admin;
     }
+
     //termina cambios de roles
     public boolean isStatus() { return status; }
     public void setStatus(boolean status) { this.status = status; }

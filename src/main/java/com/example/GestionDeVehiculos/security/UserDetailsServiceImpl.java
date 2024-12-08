@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.stream.Collectors;
 
 //Anotación @Service: Marca la clase como un servicio gestionado por Spring, lo que significa que
@@ -32,26 +34,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        //buscar un usuario en la base de datos
-        //Este código intenta obtener un objeto User desde la base de datos utilizando el username.
-        //Si el usuario no se encuentra, lanza una excepción UsernameNotFoundException, la cual es
-        // una excepción estándar en Spring Security cuando no se puede encontrar un usuario con el
-        // nombre de usuario proporcionado.
+
         Usuarios user = usuariosRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + email));
-        //Crear un UserDetails de Spring Security:
-        //El siguiente paso es crear un objeto de tipo UserDetails, que es lo que Spring Security usa para manejar la autenticación y autorización.
-        //user.getUsername() obtiene el nombre de usuario del objeto User recuperado de la base de datos.
-        //user.getPassword() obtiene la contraseña del usuario.
-        //user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName())) mapea los roles del usuario a objetos
-        // de tipo SimpleGrantedAuthority. Spring Security usa estos roles para controlar los permisos del usuario.
-        //collect(Collectors.toList()) convierte el flujo de autoridades (roles) en una lista, que es el formato que Spring Security espera.
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getContraseña(),
-                user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList()));
 
-
-        //Finalmente, se retorna un objeto de tipo User de Spring Security (no confundir con el objeto
-        // User de tu modelo), el cual contiene la información necesaria para la autenticación:
-        // nombre de usuario, contraseña y los roles del usuario.
+        return new org.springframework.security.core.userdetails.User(
+                user.getEmail(),
+                user.getContraseña(),
+                List.of(new SimpleGrantedAuthority(user.getAdmin()))
+        );
     }
 }
 

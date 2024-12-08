@@ -1,14 +1,12 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
 import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServiciosDTO;
-import com.example.GestionDeVehiculos.Role.model.Role;
-import jakarta.validation.constraints.Email;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
-import java.util.Set;
+
+
 
 public class UsuarioDTO {
     @NotNull(groups = {CategoriaDeServiciosDTO.Modify.class, CategoriaDeServiciosDTO.ChangeStatus.class},message = "Es necesario el id")
@@ -29,8 +27,11 @@ public class UsuarioDTO {
     @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesaria la contraseña")
     private String contraseña;
 
-    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
-    private Set<Role> roles;
+
+    @NotNull(groups = { Register.class,Modify.class}, message = "El admin no puede ser nulo")
+    private String admin;
+//    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
+//    private Set<Role> roles;
 
 
     public UsuarioDTO() {
@@ -84,12 +85,12 @@ public class UsuarioDTO {
         this.contraseña = contraseña;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public String getAdmin() {
+        return admin;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setAdmin(String admin) {
+        this.admin = admin;
     }
 
     //interfaces

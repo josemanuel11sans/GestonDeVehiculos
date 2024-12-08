@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/CategoriasDeServicios")
 //agregra el Croos si se require para consumoQ
-@CrossOrigin(origins = ("*"), methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class CategoriaDeServiciosController {
     private final CategoriaDeServiciosService service;
 
@@ -19,7 +18,7 @@ public class CategoriaDeServiciosController {
         this.service = service;
     }
     //listar todas las categorías
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<Object> listarCategoriasDeServicios() {
         return service.findAll();
     }

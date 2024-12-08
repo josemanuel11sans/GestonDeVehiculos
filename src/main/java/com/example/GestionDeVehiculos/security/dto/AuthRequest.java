@@ -1,25 +1,31 @@
 package com.example.GestionDeVehiculos.security.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class AuthRequest {
-    private String username;
-    private String password;
+    @NotBlank(message = "El email es obligatorio")
+    @Email(message = "Formato de email inválido")
+    private String email;
+    @NotBlank(message = "La contraseña es obligatoria")
+    private String contraseña;
 
     public AuthRequest() {
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 }
