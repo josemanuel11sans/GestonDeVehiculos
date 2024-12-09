@@ -178,3 +178,35 @@
 2024-12-06T22:46:45.465-06:00  INFO 11464 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-06T22:46:45.466-06:00  INFO 11464 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-06T22:46:45.470-06:00  INFO 11464 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-09T02:17:56.585-06:00  INFO 2816 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Starting GestionDeVehiculosApplication using Java 22.0.2 with PID 2816 (C:\Users\Joseb\OneDrive\Desktop\GestonDeVehiculos\target\classes started by Joseb in C:\Users\Joseb\OneDrive\Desktop\GestonDeVehiculos)
+2024-12-09T02:17:56.588-06:00  INFO 2816 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-09T02:17:57.414-06:00  INFO 2816 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-09T02:17:57.473-06:00  INFO 2816 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 5 JPA repository interfaces.
+2024-12-09T02:17:57.854-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-09T02:17:57.865-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-09T02:17:57.865-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-12-09T02:17:57.910-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-09T02:17:57.910-06:00  INFO 2816 --- [GestionDeVehiculos] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1289 ms
+2024-12-09T02:17:57.998-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-09T02:17:58.043-06:00  INFO 2816 --- [GestionDeVehiculos] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-09T02:17:58.075-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-09T02:17:58.315-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-09T02:17:58.338-06:00  INFO 2816 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-09T02:17:58.622-06:00  INFO 2816 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b8d20e6
+2024-12-09T02:17:58.624-06:00  INFO 2816 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-09T02:17:58.668-06:00  WARN 2816 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-09T02:17:58.669-06:00  WARN 2816 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-12-09T02:17:59.413-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-09T02:17:59.624-06:00  INFO 2816 --- [GestionDeVehiculos] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-09T02:17:59.920-06:00  INFO 2816 --- [GestionDeVehiculos] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-12-09T02:17:59.967-06:00  WARN 2816 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-09T02:18:00.373-06:00  INFO 2816 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-09T02:18:00.376-06:00  INFO 2816 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 4.106 seconds (process running for 5.196)
+2024-12-09T02:19:00.065-06:00  INFO 2816 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-09T02:19:00.065-06:00  INFO 2816 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-09T02:19:00.067-06:00  INFO 2816 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-12-09T02:25:32.089-06:00 ERROR 2816 --- [GestionDeVehiculos] [http-nio-8080-exec-10] c.e.G.security.JwtRequestFilter          : Error al extraer el nombre de usuario del token: Illegal base64url character: '+'
+2024-12-09T02:26:11.939-06:00 ERROR 2816 --- [GestionDeVehiculos] [http-nio-8080-exec-2] c.e.G.security.JwtRequestFilter          : Error al extraer el nombre de usuario del token: JWT strings must contain exactly 2 period characters. Found: 0
+2024-12-09T02:37:14.009-06:00  INFO 2816 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-09T02:37:14.010-06:00  INFO 2816 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-09T02:37:14.014-06:00  INFO 2816 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

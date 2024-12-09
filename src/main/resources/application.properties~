@@ -1,0 +1,24 @@
+spring.application.name=GestionDeVehiculos
+# MYSQL
+spring.datasource.url=jdbc:mysql://localhost:3306/vehiculos?serverTimezone=America/Mexico_City&useLegacyDateTimeCode=false&createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+# Propiedades
+spring.jpa.generate-ddl=true
+# Crear la estructura de entidades
+#son las Querys personalizadas
+spring.jpa.hibernate.ddl-auto=update
+# Ver querys
+spring.jpa.show-sql=true
+# Loggers
+logging.level.root=info
+logging.file.name=servicio_test.log
+#esto es de security
+jwt.secret=7bTB86PkZitaAvzP4wEnTMzmOi8vCge9fSU+G6vnfBQ=
+jwt.expiration=86400000
+
+
+# Habilitar CORS para todas las rutas
+spring.webflux.cors.enabled=true
+spring.web.servlet.cors.enabled=true

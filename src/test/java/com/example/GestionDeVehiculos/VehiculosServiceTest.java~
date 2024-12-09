@@ -47,7 +47,7 @@ class VehiculosServiceTest {
 		Vehiculo vehiculo = new Vehiculo();
 		when(vehiculoRepository.save(any(Vehiculo.class))).thenReturn(vehiculo);
 
-		VehiculoDTO result = vehiculosService.registrarVehiculo(dto);
+		Vehiculo result = vehiculosService.registrarVehiculo(dto);
 		assertNotNull(result);
 		verify(vehiculoRepository, times(1)).save(any(Vehiculo.class));
 	}

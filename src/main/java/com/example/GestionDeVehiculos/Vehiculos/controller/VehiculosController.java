@@ -21,26 +21,23 @@ public class VehiculosController {
         return ResponseEntity.ok(vehiculosService.consultarVehiculos());
     }
 
-
     @PostMapping("/registrar")
-    public ResponseEntity<Vehiculo> registrarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
-        return ResponseEntity.ok(vehiculosService.registrarVehiculo(vehiculoDTO));
+    public ResponseEntity<Object> registrarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
+        return vehiculosService.registrarVehiculo(vehiculoDTO);
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<VehiculoDTO> actualizarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
-        return ResponseEntity.ok(vehiculosService.actualizarVehiculo(vehiculoDTO));
+    public ResponseEntity<Object> actualizarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
+        return vehiculosService.actualizarVehiculo(vehiculoDTO);
     }
 
     @PutMapping("/status")
-    public ResponseEntity<Object> changeStatus(@Validated(VehiculoDTO.ChangeStatus.class) @RequestBody VehiculoDTO dto) {
+    public ResponseEntity<Object> changeStatus(@Validated @RequestBody VehiculoDTO dto) {
         return vehiculosService.cambiarStatus(dto);
     }
 
-
     @GetMapping("/activos")
     public ResponseEntity<List<Vehiculo>> consultarVehiculosActivos() {
-
         return ResponseEntity.ok(vehiculosService.consultarVehiculosActivos());
     }
 
@@ -59,5 +56,4 @@ public class VehiculosController {
         vehiculosService.removerServicio(vehiculoId, servicioId);
         return ResponseEntity.ok("Servicio removido del vehículo correctamente.");
     }
-    
 }

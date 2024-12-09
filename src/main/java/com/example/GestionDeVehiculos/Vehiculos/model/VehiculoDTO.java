@@ -1,18 +1,30 @@
 package com.example.GestionDeVehiculos.Vehiculos.model;
 
 import com.example.GestionDeVehiculos.Servicios.model.Servicios;
-import jakarta.validation.constraints.NotNull;
+import com.example.GestionDeVehiculos.Utils.Message;
+import com.example.GestionDeVehiculos.Utils.TypesResponse;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import java.util.Set;
 
 public class VehiculoDTO {
 
-    @NotNull(groups = {ChangeStatus.class}, message = "Es necesario el ID del vehículo")
     private Long id;
 
+    @NotBlank(message = "El modelo no puede estar vacío")
+    @Size(max = 100, message = "El modelo no puede exceder los 100 caracteres")
     private String modelo;
+
+    @NotBlank(message = "La marca no puede estar vacía")
+    @Size(max = 100, message = "La marca no puede exceder los 100 caracteres")
     private String marca;
+
+    @NotBlank(message = "El color no puede estar vacío")
+    @Size(max = 50, message = "El color no puede exceder los 50 caracteres")
     private String color;
+
     private boolean status;
+
     private Set<Servicios> servicios;
 
     public Long getId() {
@@ -28,6 +40,14 @@ public class VehiculoDTO {
     }
 
     public void setModelo(String modelo) {
+        if (modelo == null || modelo.isBlank()) {
+            throw new IllegalArgumentException(
+                    new Message("El modelo no puede estar vacío", TypesResponse.WARNING).toString());
+        }
+        if (modelo.length() > 100) {
+            throw new IllegalArgumentException(
+                    new Message("El modelo excede los 100 caracteres permitidos", TypesResponse.WARNING).toString());
+        }
         this.modelo = modelo;
     }
 
@@ -36,6 +56,14 @@ public class VehiculoDTO {
     }
 
     public void setMarca(String marca) {
+        if (marca == null || marca.isBlank()) {
+            throw new IllegalArgumentException(
+                    new Message("La marca no puede estar vacía", TypesResponse.WARNING).toString());
+        }
+        if (marca.length() > 100) {
+            throw new IllegalArgumentException(
+                    new Message("La marca excede los 100 caracteres permitidos", TypesResponse.WARNING).toString());
+        }
         this.marca = marca;
     }
 
@@ -44,6 +72,14 @@ public class VehiculoDTO {
     }
 
     public void setColor(String color) {
+        if (color == null || color.isBlank()) {
+            throw new IllegalArgumentException(
+                    new Message("El color no puede estar vacío", TypesResponse.WARNING).toString());
+        }
+        if (color.length() > 50) {
+            throw new IllegalArgumentException(
+                    new Message("El color excede los 50 caracteres permitidos", TypesResponse.WARNING).toString());
+        }
         this.color = color;
     }
 
@@ -63,6 +99,32 @@ public class VehiculoDTO {
         this.servicios = servicios;
     }
 
-    // Interfaz de validación para cambio de estado
-    public interface ChangeStatus {}
+
+    public void validate() {
+        if (modelo == null || modelo.isBlank()) {
+            throw new IllegalArgumentException(
+                    new Message("El modelo no puede estar vacío", TypesResponse.WARNING).toString());
+        }
+        if (modelo.length() > 100) {
+            throw new IllegalArgumentException(
+                    new Message("El modelo excede los 100 caracteres permitidos", TypesResponse.WARNING).toString());
+        }
+        if (marca == null || marca.isBlank()) {
+            throw new IllegalArgumentException(
+                    new Message("La marca no puede estar vacía", TypesResponse.WARNING).toString());
+        }
+        if (marca.length() > 100) {
+            throw new IllegalArgumentException(
+                    new Message("La marca excede los 100 caracteres permitidos", TypesResponse.WARNING).toString());
+        }
+        if (color == null || color.isBlank()) {
+            throw new IllegalArgumentException(
+                    new Message("El color no puede estar vacío", TypesResponse.WARNING).toString());
+        }
+        if (color.length() > 50) {
+            throw new IllegalArgumentException(
+                    new Message("El color excede los 50 caracteres permitidos", TypesResponse.WARNING).toString());
+        }
+    }
+
 }

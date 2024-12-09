@@ -30,31 +30,45 @@ public class VehiculosService {
         return vehiculoRepository.findAll();
     }
 
-    public Vehiculo registrarVehiculo(VehiculoDTO vehiculoDTO) {
-        Vehiculo vehiculo = new Vehiculo();
-        vehiculo.setModelo(vehiculoDTO.getModelo());
-        vehiculo.setMarca(vehiculoDTO.getMarca());
-        vehiculo.setColor(vehiculoDTO.getColor());
-        vehiculo.setStatus(vehiculoDTO.isStatus());
-        return vehiculoRepository.save(vehiculo);
-    }
-    public List<Vehiculo> obtenerTodosVehiculos() {
-        return vehiculoRepository.findAll(); // Obtiene todos los vehículos sin filtrar por estado
-    }
-
-    public VehiculoDTO actualizarVehiculo(VehiculoDTO vehiculoDTO) {
-        Optional<Vehiculo> optionalVehiculo = vehiculoRepository.findById(vehiculoDTO.getId());
-        if (optionalVehiculo.isPresent()) {
-            Vehiculo vehiculo = optionalVehiculo.get();
+    public ResponseEntity<Object> registrarVehiculo(VehiculoDTO vehiculoDTO) {
+        try {
+            vehiculoDTO.validate();
+            Vehiculo vehiculo = new Vehiculo();
             vehiculo.setModelo(vehiculoDTO.getModelo());
             vehiculo.setMarca(vehiculoDTO.getMarca());
             vehiculo.setColor(vehiculoDTO.getColor());
             vehiculo.setStatus(vehiculoDTO.isStatus());
-            return toDTO(vehiculoRepository.save(vehiculo));
-        } else {
-            throw new IllegalArgumentException("Vehículo no encontrado con ID: " + vehiculoDTO.getId());
+            vehiculo = vehiculoRepository.save(vehiculo);
+            return new ResponseEntity<>(new Message(vehiculo, "Vehículo registrado exitosamente", TypesResponse.SUCCESS), HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(new Message(e.getMessage(), TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
         }
     }
+
+    public List<Vehiculo> obtenerTodosVehiculos() {
+        return vehiculoRepository.findAll();
+    }
+
+    public ResponseEntity<Object> actualizarVehiculo(VehiculoDTO vehiculoDTO) {
+        try {
+            vehiculoDTO.validate();
+            Optional<Vehiculo> optionalVehiculo = vehiculoRepository.findById(vehiculoDTO.getId());
+            if (optionalVehiculo.isPresent()) {
+                Vehiculo vehiculo = optionalVehiculo.get();
+                vehiculo.setModelo(vehiculoDTO.getModelo());
+                vehiculo.setMarca(vehiculoDTO.getMarca());
+                vehiculo.setColor(vehiculoDTO.getColor());
+                vehiculo.setStatus(vehiculoDTO.isStatus());
+                vehiculo = vehiculoRepository.save(vehiculo);
+                return new ResponseEntity<>(new Message(toDTO(vehiculo), "Vehículo actualizado correctamente", TypesResponse.SUCCESS), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(new Message("Vehículo no encontrado", TypesResponse.WARNING), HttpStatus.NOT_FOUND);
+            }
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(new Message(e.getMessage(), TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     public List<Vehiculo> consultarVehiculosActivos() {
         return vehiculoRepository.findAll().stream()
                 .filter(Vehiculo::isStatus)
@@ -65,40 +79,15 @@ public class VehiculosService {
     public ResponseEntity<Object> cambiarStatus(VehiculoDTO dto) {
         Optional<Vehiculo> optionalVehiculo = vehiculoRepository.findById(dto.getId());
         if (!optionalVehiculo.isPresent()) {
-            return new ResponseEntity<>(
-                    new Message("No se encontró el vehículo", TypesResponse.SUCCESS),
-                    HttpStatus.OK
-            );
+            return new ResponseEntity<>(new Message("No se encontró el vehículo", TypesResponse.WARNING), HttpStatus.NOT_FOUND);
         }
 
         Vehiculo vehiculo = optionalVehiculo.get();
-        vehiculo.setStatus(!vehiculo.isStatus()); // Cambia automáticamente el estado
+        vehiculo.setStatus(!vehiculo.isStatus());
         vehiculo = vehiculoRepository.saveAndFlush(vehiculo);
 
-        if (vehiculo == null) {
-            return new ResponseEntity<>(
-                    new Message("No se pudo modificar el estado del vehículo", TypesResponse.WARNING),
-                    HttpStatus.BAD_REQUEST
-            );
-        }
-
-        return new ResponseEntity<>(
-                new Message(vehiculo, "Estado del vehículo modificado correctamente", TypesResponse.SUCCESS),
-                HttpStatus.OK
-        );
+        return new ResponseEntity<>(new Message(vehiculo, "Estado del vehículo modificado correctamente", TypesResponse.SUCCESS), HttpStatus.OK);
     }
-
-
-//    public void cambiarEstadoVehiculo(Long id, boolean status) {
-//        Optional<Vehiculo> optionalVehiculo = vehiculoRepository.findById(id);
-//        if (optionalVehiculo.isPresent()) {
-//            Vehiculo vehiculo = optionalVehiculo.get();
-//            vehiculo.setStatus(status);
-//            vehiculoRepository.save(vehiculo);
-//        } else {
-//            throw new IllegalArgumentException("Vehículo no encontrado con ID: " + id);
-//        }
-//    }
 
     public void asignarServicio(Long vehiculoId, Long servicioId) {
         Vehiculo vehiculo = vehiculoRepository.findById(vehiculoId)
