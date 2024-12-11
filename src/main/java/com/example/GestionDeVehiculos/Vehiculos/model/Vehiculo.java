@@ -1,6 +1,7 @@
 package com.example.GestionDeVehiculos.Vehiculos.model;
 
 import com.example.GestionDeVehiculos.Servicios.model.Servicios;
+import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -23,6 +24,9 @@ public class Vehiculo {
 
     @Column(name = "status", columnDefinition = "TINYINT", nullable = false)
     private boolean status;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")  // La columna que almacena la referencia al usuario
+    private Usuarios usuario;
 
     @ManyToMany
     @JoinTable(

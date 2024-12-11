@@ -1,6 +1,7 @@
 package com.example.GestionDeVehiculos.Usuarios.model;
 
 
+import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
@@ -9,6 +10,7 @@ import net.minidev.json.annotate.JsonIgnore;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,6 +37,9 @@ public class Usuarios {
 
     @Column(name = "admin", columnDefinition = "VARCHAR(20) DEFAULT 'ROLE_USER'")
     private String admin;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Vehiculo> vehiculos;
 
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
