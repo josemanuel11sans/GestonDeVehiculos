@@ -4,6 +4,7 @@ import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
 import com.example.GestionDeVehiculos.Vehiculos.model.VehiculoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,25 +16,28 @@ public class VehiculosController {
     @Autowired
     private VehiculosService vehiculosService;
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Vehiculo>> consultarVehiculos() {
+        return ResponseEntity.ok(vehiculosService.consultarVehiculos());
+    }
+
     @PostMapping("/registrar")
-    public ResponseEntity<Vehiculo> registrarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
-        return ResponseEntity.ok(vehiculosService.registrarVehiculo(vehiculoDTO));
+    public ResponseEntity<Object> registrarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
+        return vehiculosService.registrarVehiculo(vehiculoDTO);
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<VehiculoDTO> actualizarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
-        return ResponseEntity.ok(vehiculosService.actualizarVehiculo(vehiculoDTO));
+    public ResponseEntity<Object> actualizarVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
+        return vehiculosService.actualizarVehiculo(vehiculoDTO);
     }
 
-    @PutMapping("/cambiar-estado/{id}")
-    public ResponseEntity<String> cambiarEstadoVehiculo(@PathVariable Long id, @RequestParam boolean status) {
-        vehiculosService.cambiarEstadoVehiculo(id, status);
-        return ResponseEntity.ok("Estado del vehículo actualizado correctamente.");
+    @PutMapping("/status")
+    public ResponseEntity<Object> changeStatus(@Validated @RequestBody VehiculoDTO dto) {
+        return vehiculosService.cambiarStatus(dto);
     }
 
     @GetMapping("/activos")
     public ResponseEntity<List<Vehiculo>> consultarVehiculosActivos() {
-
         return ResponseEntity.ok(vehiculosService.consultarVehiculosActivos());
     }
 
@@ -52,5 +56,4 @@ public class VehiculosController {
         vehiculosService.removerServicio(vehiculoId, servicioId);
         return ResponseEntity.ok("Servicio removido del vehículo correctamente.");
     }
-    
 }
