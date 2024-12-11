@@ -32,3 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 servicio_test.*
+servicio_test.log.*
