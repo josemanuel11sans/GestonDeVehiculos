@@ -37,7 +37,6 @@ public class VehiculosService {
             vehiculo.setModelo(vehiculoDTO.getModelo());
             vehiculo.setMarca(vehiculoDTO.getMarca());
             vehiculo.setColor(vehiculoDTO.getColor());
-            vehiculo.setStatus(vehiculoDTO.isStatus());
             vehiculo = vehiculoRepository.save(vehiculo);
             return new ResponseEntity<>(new Message(vehiculo, "Vehículo registrado exitosamente", TypesResponse.SUCCESS), HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
