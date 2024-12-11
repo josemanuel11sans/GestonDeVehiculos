@@ -23,7 +23,7 @@ public class VehiculoDTO {
     @Size(max = 50, message = "El color no puede exceder los 50 caracteres")
     private String color;
 
-    private boolean status;
+    private boolean status = true;
 
     private Set<Servicios> servicios;
 
