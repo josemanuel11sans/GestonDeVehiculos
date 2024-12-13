@@ -133,9 +133,9 @@ public ResponseEntity<Object> actualizarUsuario(UsuarioDTO dto){
     }
     //validar si el email ya existe
     Optional<Usuarios> optionalUsuarios = usuariosRepository.searchUsuariosByEmail(dto.getEmail());
-    if(optionalUsuarios.isPresent() && !optionalUsuarios.get().getId().equals(dto.getId())) {
-        return new ResponseEntity<>(new Message("El Correo electronico ya existe", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
-    }
+//    if(optionalUsuarios.isPresent() && !optionalUsuarios.get().getId().equals(dto.getId())) {
+//        return new ResponseEntity<>(new Message("El Correo electronico ya existe", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+//    }
     dto.setNombre(capitalizarPrimeraLetra(dto.getNombre()));
     dto.setApellidos(capitalizarPrimeraLetra(dto.getApellidos()));
 
@@ -145,7 +145,7 @@ public ResponseEntity<Object> actualizarUsuario(UsuarioDTO dto){
     usuarios.setEmail(dto.getEmail());
     usuarios.setTelefono(dto.getTelefono());
     usuarios.setContraseña(dto.getContraseña());
-    usuarios.setAdmin(dto.getAdmin());
+    usuarios.setAdmin(usuarios.getAdmin());
 
     usuarios = usuariosRepository.saveAndFlush(usuarios);
     if(usuarios == null){

@@ -28,7 +28,7 @@ public class UsuarioDTO {
     private String contraseña;
 
 
-    @NotNull(groups = { Register.class,Modify.class}, message = "El admin no puede ser nulo")
+    @NotNull(groups = { Register.class}, message = "El admin no puede ser nulo")
     private String admin;
 //    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
 //    private Set<Role> roles;
