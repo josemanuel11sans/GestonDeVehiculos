@@ -35,6 +35,11 @@ public class UsuariosController {
     public ResponseEntity<Object> changeStatus(@Validated(UsuarioDTO.ChangeStatus.class) @RequestBody UsuarioDTO dto){
         return service.cambiarStatus(dto);
     }
+
+    @GetMapping("/id")
+    public ResponseEntity<Object> buscarporid(@RequestBody UsuarioDTO dto){
+      return service.buscarPorID(dto);
+    }
 }
 
 

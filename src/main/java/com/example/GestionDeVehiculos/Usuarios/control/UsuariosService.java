@@ -29,6 +29,11 @@ public class UsuariosService {
     public UsuariosService(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
     }
+
+
+
+
+
     //   - registar usuario
             //Ejemplo
             //    {
@@ -91,6 +96,18 @@ public class UsuariosService {
         }
         return new ResponseEntity<>(new Message(usuario, "Se registró el usuario", TypesResponse.SUCCESS), HttpStatus.OK);
 
+    }
+
+    @Transactional(readOnly = true)
+    public  ResponseEntity<Object> buscarPorID(UsuarioDTO dto){
+        Optional<Usuarios> optionalUsuarios = usuariosRepository.findById(dto.getId());
+        if (optionalUsuarios.isPresent()) {
+            // Si el usuario existe, devuelve una respuesta exitosa con el usuario
+            return new ResponseEntity<>(optionalUsuarios.get(), HttpStatus.OK);
+        } else {
+            // Si el usuario no existe, devuelve un error
+            return new ResponseEntity<>(new Message("Usuario no encontrado", TypesResponse.WARNING), HttpStatus.NOT_FOUND);
+        }
     }
     //   - Consultar usuarios
 

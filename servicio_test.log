@@ -1296,3 +1296,308 @@ java.util.NoSuchElementException: No value present
 2024-12-12T18:33:23.498-06:00  INFO 15584 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-12T18:33:23.578-06:00  INFO 15584 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-12T18:33:23.729-06:00  INFO 15584 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-12T18:33:30.801-06:00  INFO 6484 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Starting GestionDeVehiculosApplication using Java 22.0.1 with PID 6484 (C:\Users\Josem\Desktop\Repos\GestonDeVehiculos\target\classes started by Josem in C:\Users\Josem\Desktop\Repos\GestonDeVehiculos)
+2024-12-12T18:33:30.806-06:00  INFO 6484 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T18:33:31.903-06:00  INFO 6484 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-12T18:33:31.988-06:00  INFO 6484 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 4 JPA repository interfaces.
+2024-12-12T18:33:32.602-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-12T18:33:32.616-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T18:33:32.617-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-12-12T18:33:32.668-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T18:33:32.668-06:00  INFO 6484 --- [GestionDeVehiculos] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1782 ms
+2024-12-12T18:33:32.805-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T18:33:32.925-06:00  INFO 6484 --- [GestionDeVehiculos] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-12T18:33:32.983-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T18:33:33.293-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-12T18:33:33.325-06:00  INFO 6484 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T18:33:33.815-06:00  INFO 6484 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@bc8d68b
+2024-12-12T18:33:33.816-06:00  INFO 6484 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T18:33:33.877-06:00  WARN 6484 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-12T18:33:33.878-06:00  WARN 6484 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-12-12T18:33:34.737-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T18:33:34.981-06:00  INFO 6484 --- [GestionDeVehiculos] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T18:33:35.679-06:00  WARN 6484 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T18:33:35.719-06:00  INFO 6484 --- [GestionDeVehiculos] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-12-12T18:33:36.574-06:00  INFO 6484 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-12T18:33:36.581-06:00  INFO 6484 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 6.636 seconds (process running for 7.907)
+2024-12-12T18:34:00.979-06:00  INFO 6484 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-12T18:34:00.980-06:00  INFO 6484 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-12T18:34:00.981-06:00  INFO 6484 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-12T18:35:00.282-06:00  INFO 6484 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T18:35:00.298-06:00  INFO 6484 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T18:35:00.330-06:00  INFO 6484 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-12T18:42:45.111-06:00  INFO 21808 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Starting GestionDeVehiculosApplication using Java 22.0.1 with PID 21808 (C:\Users\Josem\Desktop\Repos\GestonDeVehiculos\target\classes started by Josem in C:\Users\Josem\Desktop\Repos\GestonDeVehiculos)
+2024-12-12T18:42:45.114-06:00  INFO 21808 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T18:42:45.869-06:00  INFO 21808 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-12T18:42:46.178-06:00  INFO 21808 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 288 ms. Found 4 JPA repository interfaces.
+2024-12-12T18:42:46.836-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-12T18:42:46.851-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T18:42:46.851-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-12-12T18:42:46.934-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T18:42:46.935-06:00  INFO 21808 --- [GestionDeVehiculos] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1769 ms
+2024-12-12T18:42:47.102-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T18:42:47.181-06:00  INFO 21808 --- [GestionDeVehiculos] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-12T18:42:47.227-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T18:42:47.617-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-12T18:42:47.653-06:00  INFO 21808 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T18:42:48.033-06:00  INFO 21808 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5273143e
+2024-12-12T18:42:48.036-06:00  INFO 21808 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T18:42:48.104-06:00  WARN 21808 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-12T18:42:48.105-06:00  WARN 21808 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-12-12T18:42:49.089-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T18:42:49.384-06:00  INFO 21808 --- [GestionDeVehiculos] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T18:42:49.767-06:00  WARN 21808 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T18:42:49.799-06:00  INFO 21808 --- [GestionDeVehiculos] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-12-12T18:42:50.370-06:00  INFO 21808 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-12T18:42:50.378-06:00  INFO 21808 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 5.785 seconds (process running for 6.687)
+2024-12-12T18:43:02.340-06:00  INFO 21808 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-12T18:43:02.341-06:00  INFO 21808 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-12T18:43:02.347-06:00  INFO 21808 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-12-12T18:46:18.593-06:00  WARN 21808 --- [GestionDeVehiculos] [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2024-12-12T18:46:26.448-06:00  WARN 21808 --- [GestionDeVehiculos] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2024-12-12T19:41:15.915-06:00  INFO 21808 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T19:41:16.023-06:00  INFO 21808 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T19:41:16.097-06:00  INFO 21808 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-12T19:41:21.661-06:00  INFO 2428 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Starting GestionDeVehiculosApplication using Java 22.0.1 with PID 2428 (C:\Users\Josem\Desktop\Repos\GestonDeVehiculos\target\classes started by Josem in C:\Users\Josem\Desktop\Repos\GestonDeVehiculos)
+2024-12-12T19:41:21.665-06:00  INFO 2428 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T19:41:23.172-06:00  INFO 2428 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-12T19:41:23.462-06:00  INFO 2428 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 260 ms. Found 4 JPA repository interfaces.
+2024-12-12T19:41:24.350-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-12T19:41:24.365-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T19:41:24.365-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-12-12T19:41:24.423-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T19:41:24.423-06:00  INFO 2428 --- [GestionDeVehiculos] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2678 ms
+2024-12-12T19:41:24.649-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T19:41:24.730-06:00  INFO 2428 --- [GestionDeVehiculos] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-12T19:41:24.777-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T19:41:25.090-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-12T19:41:25.120-06:00  INFO 2428 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T19:41:25.508-06:00  INFO 2428 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3fd33f48
+2024-12-12T19:41:25.510-06:00  INFO 2428 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T19:41:25.579-06:00  WARN 2428 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-12T19:41:25.580-06:00  WARN 2428 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-12-12T19:41:26.512-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T19:41:26.870-06:00  INFO 2428 --- [GestionDeVehiculos] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T19:41:27.259-06:00  WARN 2428 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T19:41:27.288-06:00  INFO 2428 --- [GestionDeVehiculos] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-12-12T19:41:27.815-06:00  INFO 2428 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-12T19:41:27.821-06:00  INFO 2428 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 6.833 seconds (process running for 7.899)
+2024-12-12T19:41:47.353-06:00  INFO 2428 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-12T19:41:47.353-06:00  INFO 2428 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-12T19:41:47.356-06:00  INFO 2428 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-12-12T19:41:47.465-06:00  WARN 2428 --- [GestionDeVehiculos] [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2024-12-12T19:41:53.246-06:00  WARN 2428 --- [GestionDeVehiculos] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-12-12T19:42:26.015-06:00  WARN 2428 --- [GestionDeVehiculos] [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-12-12T19:42:39.531-06:00  INFO 2428 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T19:42:39.533-06:00  INFO 2428 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T19:42:39.544-06:00  INFO 2428 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-12T19:42:42.503-06:00  INFO 8532 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Starting GestionDeVehiculosApplication using Java 22.0.1 with PID 8532 (C:\Users\Josem\Desktop\Repos\GestonDeVehiculos\target\classes started by Josem in C:\Users\Josem\Desktop\Repos\GestonDeVehiculos)
+2024-12-12T19:42:42.504-06:00  INFO 8532 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T19:42:43.054-06:00  INFO 8532 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-12T19:42:43.106-06:00  INFO 8532 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2024-12-12T19:42:43.519-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-12T19:42:43.531-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T19:42:43.531-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-12-12T19:42:43.576-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T19:42:43.576-06:00  INFO 8532 --- [GestionDeVehiculos] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1039 ms
+2024-12-12T19:42:43.669-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T19:42:43.728-06:00  INFO 8532 --- [GestionDeVehiculos] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-12T19:42:43.763-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T19:42:44.017-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-12T19:42:44.043-06:00  INFO 8532 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T19:42:44.478-06:00  INFO 8532 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@248d3a
+2024-12-12T19:42:44.487-06:00  INFO 8532 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T19:42:44.528-06:00  WARN 8532 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-12T19:42:44.529-06:00  WARN 8532 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-12-12T19:42:45.404-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T19:42:45.604-06:00  INFO 8532 --- [GestionDeVehiculos] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T19:42:45.947-06:00  WARN 8532 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T19:42:45.972-06:00  INFO 8532 --- [GestionDeVehiculos] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-12-12T19:42:46.393-06:00  INFO 8532 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-12T19:42:46.399-06:00  INFO 8532 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 4.224 seconds (process running for 4.763)
+2024-12-12T19:42:48.248-06:00  INFO 8532 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-12T19:42:48.248-06:00  INFO 8532 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-12T19:42:48.249-06:00  INFO 8532 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-12T19:42:48.368-06:00 ERROR 8532 --- [GestionDeVehiculos] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null] with root cause
+
+java.lang.IllegalArgumentException: The given id must not be null
+	at org.springframework.util.Assert.notNull(Assert.java:172) ~[spring-core-6.1.13.jar:6.1.13]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:305) ~[spring-data-jpa-3.3.4.jar:3.3.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:173) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.13.jar:6.1.13]
+	at jdk.proxy2/jdk.proxy2.$Proxy127.findById(Unknown Source) ~[na:na]
+	at com.example.GestionDeVehiculos.Usuarios.control.UsuariosService.buscarPorID(UsuariosService.java:103) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.13.jar:6.1.13]
+	at com.example.GestionDeVehiculos.Usuarios.control.UsuariosService$$SpringCGLIB$$0.buscarPorID(<generated>) ~[classes/:na]
+	at com.example.GestionDeVehiculos.Usuarios.control.UsuariosController.buscarPorId(UsuariosController.java:41) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at com.example.GestionDeVehiculos.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:57) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.3.3.jar:6.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+
+2024-12-12T19:46:13.609-06:00  INFO 8532 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T19:46:13.654-06:00  INFO 8532 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T19:46:13.730-06:00  INFO 8532 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-12T19:46:17.949-06:00  INFO 2348 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Starting GestionDeVehiculosApplication using Java 22.0.1 with PID 2348 (C:\Users\Josem\Desktop\Repos\GestonDeVehiculos\target\classes started by Josem in C:\Users\Josem\Desktop\Repos\GestonDeVehiculos)
+2024-12-12T19:46:17.952-06:00  INFO 2348 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T19:46:18.596-06:00  INFO 2348 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-12T19:46:18.657-06:00  INFO 2348 --- [GestionDeVehiculos] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 4 JPA repository interfaces.
+2024-12-12T19:46:19.242-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-12T19:46:19.258-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T19:46:19.258-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-12-12T19:46:19.312-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T19:46:19.312-06:00  INFO 2348 --- [GestionDeVehiculos] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1306 ms
+2024-12-12T19:46:19.430-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T19:46:19.498-06:00  INFO 2348 --- [GestionDeVehiculos] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-12T19:46:19.535-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T19:46:19.903-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-12T19:46:19.932-06:00  INFO 2348 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T19:46:20.439-06:00  INFO 2348 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7769d9b6
+2024-12-12T19:46:20.440-06:00  INFO 2348 --- [GestionDeVehiculos] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T19:46:20.497-06:00  WARN 2348 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-12T19:46:20.498-06:00  WARN 2348 --- [GestionDeVehiculos] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-12-12T19:46:21.332-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T19:46:21.644-06:00  INFO 2348 --- [GestionDeVehiculos] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T19:46:22.012-06:00  WARN 2348 --- [GestionDeVehiculos] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T19:46:22.040-06:00  INFO 2348 --- [GestionDeVehiculos] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-12-12T19:46:22.515-06:00  INFO 2348 --- [GestionDeVehiculos] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-12T19:46:22.520-06:00  INFO 2348 --- [GestionDeVehiculos] [main] c.e.G.GestionDeVehiculosApplication      : Started GestionDeVehiculosApplication in 4.967 seconds (process running for 5.698)
+2024-12-12T19:46:26.683-06:00  INFO 2348 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-12T19:46:26.683-06:00  INFO 2348 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-12T19:46:26.684-06:00  INFO 2348 --- [GestionDeVehiculos] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-12T19:46:26.796-06:00  WARN 2348 --- [GestionDeVehiculos] [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'id' for method parameter type long is not present]
+2024-12-12T19:46:49.992-06:00  WARN 2348 --- [GestionDeVehiculos] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'id' for method parameter type long is not present]
+2024-12-12T19:46:50.590-06:00  WARN 2348 --- [GestionDeVehiculos] [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'id' for method parameter type long is not present]
+2024-12-12T19:49:01.134-06:00  INFO 2348 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-12T19:49:01.225-06:00  INFO 2348 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T19:49:01.307-06:00  INFO 2348 --- [GestionDeVehiculos] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
