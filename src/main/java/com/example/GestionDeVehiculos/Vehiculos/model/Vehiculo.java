@@ -2,6 +2,7 @@ package com.example.GestionDeVehiculos.Vehiculos.model;
 
 import com.example.GestionDeVehiculos.Servicios.model.Servicios;
 import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -25,8 +26,17 @@ public class Vehiculo {
     @Column(name = "status", columnDefinition = "TINYINT", nullable = false)
     private boolean status;
     @ManyToOne
-    @JoinColumn(name = "usuario_id")  // La columna que almacena la referencia al usuario
+    @JoinColumn(name = "usuario_id")
+    @JsonBackReference // La columna que almacena la referencia al usuario
     private Usuarios usuario;
+
+    public Usuarios getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuarios usuario) {
+        this.usuario = usuario;
+    }
 
     @ManyToMany
     @JoinTable(
@@ -34,6 +44,8 @@ public class Vehiculo {
             joinColumns = @JoinColumn(name = "vehiculo_id"),
             inverseJoinColumns = @JoinColumn(name = "servicio_id")
     )
+
+
     private Set<Servicios> servicios;
 
     public Long getId() {

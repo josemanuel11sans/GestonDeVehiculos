@@ -4,6 +4,7 @@ package com.example.GestionDeVehiculos.Usuarios.control;
 import com.example.GestionDeVehiculos.Servicios.model.ServiciosDTO;
 import com.example.GestionDeVehiculos.Usuarios.model.UsuarioDTO;
 
+import com.example.GestionDeVehiculos.Utils.AsignarVehiculoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
@@ -39,6 +40,12 @@ public class UsuariosController {
     @GetMapping("/id")
     public ResponseEntity<Object> buscarporid(@RequestBody UsuarioDTO dto){
       return service.buscarPorID(dto);
+    }
+
+    // Recibe el JSON con los datos del vehículo y del usuario
+    @PostMapping("/asignarVehiculo")
+    public ResponseEntity<Object> asignarVehiculo(@RequestBody AsignarVehiculoRequest request) {
+        return service.asignarVehiculo(request.getIdUsuario(), request.getIdVehiculo());
     }
 }
 

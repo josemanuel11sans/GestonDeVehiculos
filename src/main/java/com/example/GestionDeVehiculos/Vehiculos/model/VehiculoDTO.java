@@ -1,8 +1,10 @@
 package com.example.GestionDeVehiculos.Vehiculos.model;
 
 import com.example.GestionDeVehiculos.Servicios.model.Servicios;
+import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
 import com.example.GestionDeVehiculos.Utils.Message;
 import com.example.GestionDeVehiculos.Utils.TypesResponse;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import java.util.Set;
@@ -22,7 +24,8 @@ public class VehiculoDTO {
     @NotBlank(message = "El color no puede estar vacío")
     @Size(max = 50, message = "El color no puede exceder los 50 caracteres")
     private String color;
-
+     // Se marca aquí para evitar la recursión en el lado "secundario"
+    private Usuarios usuario;
     private boolean status = true;
 
     private Set<Servicios> servicios;

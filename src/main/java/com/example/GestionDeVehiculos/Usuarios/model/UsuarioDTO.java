@@ -2,10 +2,12 @@ package com.example.GestionDeVehiculos.Usuarios.model;
 
 import com.example.GestionDeVehiculos.CategoriasDeServicios.model.CategoriaDeServiciosDTO;
 
+import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-
+import java.util.List;
 
 
 public class UsuarioDTO {
@@ -30,11 +32,18 @@ public class UsuarioDTO {
 
     @NotNull(groups = { Register.class}, message = "El admin no puede ser nulo")
     private String admin;
-//    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "son nesesarios los roles")
-//    private Set<Role> roles;
 
+    private List<Vehiculo> vehiculos;
 
     public UsuarioDTO() {
+    }
+
+    public List<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void setVehiculos(List<Vehiculo> vehiculos) {
+        this.vehiculos = vehiculos;
     }
 
     public Long getId() {

@@ -43,9 +43,7 @@ public class VehiculosController {
     }
 
     @PutMapping("/{vehiculoId}/asignar-servicio/{servicioId}")
-    public ResponseEntity<String> asignarServicio(
-            @PathVariable Long vehiculoId,
-            @PathVariable Long servicioId) {
+    public ResponseEntity<String> asignarServicio(@PathVariable Long vehiculoId, @PathVariable Long servicioId) {
         vehiculosService.asignarServicio(vehiculoId, servicioId);
         return ResponseEntity.ok("Servicio asignado al vehículo correctamente.");
     }

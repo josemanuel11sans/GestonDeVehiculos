@@ -9,6 +9,7 @@ import net.minidev.json.annotate.JsonIgnore;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,12 +40,9 @@ public class Usuarios {
     private String admin;
 
     @OneToMany(mappedBy = "usuario")
+
     private List<Vehiculo> vehiculos;
 
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    @JsonBackReference
-//    private Set<Role> roles = new HashSet<>();
 
     @Column(name = "status", columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean status;
@@ -75,6 +73,16 @@ public class Usuarios {
 
 
     // Getters y Setters
+
+
+    public List<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void setVehiculos(List<Vehiculo> vehiculos) {
+        this.vehiculos = vehiculos;
+    }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

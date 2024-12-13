@@ -7,12 +7,15 @@ import com.example.GestionDeVehiculos.Usuarios.model.Usuarios;
 import com.example.GestionDeVehiculos.Usuarios.model.UsuariosRepository;
 import com.example.GestionDeVehiculos.Utils.Message;
 import com.example.GestionDeVehiculos.Utils.TypesResponse;
+import com.example.GestionDeVehiculos.Vehiculos.model.Vehiculo;
+import com.example.GestionDeVehiculos.Vehiculos.model.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -23,6 +26,9 @@ import java.util.Optional;
 @Service
 @Transactional
 public class UsuariosService {
+    @Autowired
+    private VehiculoRepository vehiculoRepository;
+
     private UsuariosRepository usuariosRepository;
 
     @Autowired
@@ -186,6 +192,39 @@ public ResponseEntity<Object>  cambiarStatus(UsuarioDTO dto){
     }
     return new ResponseEntity<>(new Message(usuarios, "Se modificó el estado del usuario", TypesResponse.SUCCESS), HttpStatus.OK);
 }
+
+//asignar vehiculo a cliente
+public ResponseEntity<Object> asignarVehiculo(Long idUsuario, Long idVehiculo) {
+    // Buscar el Usuario
+    Usuarios usuario = usuariosRepository.findById(idUsuario)
+            .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado con ID: " + idUsuario));
+
+    // Buscar el Vehículo
+    Vehiculo vehiculo = vehiculoRepository.findById(idVehiculo)
+            .orElseThrow(() -> new IllegalArgumentException("Vehículo no encontrado con ID: " + idVehiculo));
+
+    // Verificar si el vehículo ya está asignado a otro usuario
+    if (vehiculo.getUsuario() != null) {
+        Message message = new Message("El vehículo ya está asignado a otro usuario.", TypesResponse.WARNING);
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }
+
+    // Asignar el vehículo al usuario
+    vehiculo.setUsuario(usuario);
+
+    // Guardar el vehículo actualizado
+    vehiculoRepository.save(vehiculo);
+
+    // Agregar el vehículo a la lista de vehículos del usuario (si lo necesitas)
+    usuario.getVehiculos().add(vehiculo);
+    usuariosRepository.save(usuario);  // Guardar usuario si es necesario
+
+    // Responder con éxito
+    Message successMessage = new Message("Vehículo asignado correctamente al usuario.", TypesResponse.SUCCESS);
+    return new ResponseEntity<>(successMessage, HttpStatus.OK);
+}
+
+
 //- Iniciar sesión
     //se implementaa con securyyty login
 //- Cerrar sesión
