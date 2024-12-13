@@ -37,7 +37,7 @@ public class UsuariosController {
         return service.cambiarStatus(dto);
     }
 
-    @GetMapping("/id")
+    @PostMapping("/id")
     public ResponseEntity<Object> buscarporid(@RequestBody UsuarioDTO dto){
       return service.buscarPorID(dto);
     }
