@@ -39,7 +39,7 @@ public class SecurityConfig {
                         .requestMatchers("/login").permitAll()
 
                         .requestMatchers("/servicios/**").hasAnyAuthority("ROLE_ADMIN")
-                        .requestMatchers("/usuarios/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers("/usuarios/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                         .requestMatchers("/vehiculos/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/CategoriasDeServicios/**").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
