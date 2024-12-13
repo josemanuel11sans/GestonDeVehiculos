@@ -26,7 +26,7 @@ public class UsuarioDTO {
     @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es nesesario el telefono")
     private String telefono;
 
-    @NotBlank(groups = {CategoriaDeServiciosDTO.Modify.class, Readable.class}, message = "Es necesaria la contraseña")
+    @NotBlank(groups = { Readable.class}, message = "Es necesaria la contraseña")
     private String contraseña;
 
 

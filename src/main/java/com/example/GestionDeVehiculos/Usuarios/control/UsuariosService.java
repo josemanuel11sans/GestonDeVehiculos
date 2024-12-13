@@ -167,8 +167,8 @@ public ResponseEntity<Object> actualizarUsuario(UsuarioDTO dto){
     usuarios.setApellidos(dto.getApellidos());
     usuarios.setEmail(dto.getEmail());
     usuarios.setTelefono(dto.getTelefono());
-    usuarios.setContraseña(dto.getContraseña());
-    usuarios.setAdmin(usuarios.getAdmin());
+    usuarios.setContraseña(encriptarContraseña(dto.getContraseña())git );
+
 
     usuarios = usuariosRepository.saveAndFlush(usuarios);
     if(usuarios == null){
